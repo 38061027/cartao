@@ -1,0 +1,121 @@
+
+
+.body{
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+}
+
+
+
+.content-form{
+  display: flex;
+  width: 50%;
+gap: 10px;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+
+.content-form .row-1{
+display: flex;
+flex-direction: row;
+
+}
+
+.content-form .row-2{
+display: flex;
+flex-direction: row;
+}
+
+.card-front{
+  border: 1px solid black;
+  height: 100%;
+  transform: rotateY(0deg);
+  padding: 10px;
+}
+
+.card-front .title{
+display: flex;
+width: 100%;
+justify-content: center;
+}
+
+
+
+.card-front .card-val{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+
+}
+
+#card {
+  width: 320px;
+  height: 200px;
+  padding: 5px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+
+  }
+
+  #card .card-front, #card .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 1rem;
+  }
+
+  #card .card-front {
+    background-color: #f0f0f0;
+  }
+
+  #card .card-back {
+    background-color: #ddd;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  #card .card-back .barra-preta{
+    background-color: black;
+    width: 100%;
+    height: 2.5rem;
+  }
+  #card .card-back .cvc{
+    background-color: rgb(248, 248, 248);
+    width: 85%;
+    margin-top: 15px;
+    height: 2.0rem;
+    align-self: center;
+   position: relative;
+  }
+  #card .card-back .cvc p{
+position: absolute;
+right: 2rem;
+  }
+
+  #card .card-back .description-bottom{
+    font-size: smaller;
+    padding: 10px;
+    text-align: center;
+  }
+  #card .card-back .description-top{
+    font-size: smaller;
+    text-align: center;
+  }
+
+
+
+
+
+
+

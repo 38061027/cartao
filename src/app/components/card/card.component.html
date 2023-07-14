@@ -1,0 +1,77 @@
+<div class="body">
+  <mat-card id="card">
+    <mat-card-content class="card-front">
+      <div class="title">
+        <h1>Visa infinite</h1>
+      </div>
+
+      <div class="card-number">
+        <i>icone</i>
+        <p>Número {{ forms.get("cardNumber")?.value }}</p>
+      </div>
+
+      <div class="card-name">
+        <p>name: {{ forms.get("nickName")?.value }}</p>
+      </div>
+
+      <div class="card-val">
+        <p>Val: {{ forms.get("vencimento")?.value }}</p>
+        <p>VISA</p>
+      </div>
+    </mat-card-content>
+
+
+    <mat-card-content class="card-back">
+      <p class="description-top">t is a long established fact that a reader</p>
+      <div class="barra-preta"></div>
+      <div class="cvc">
+           <p>CVC: {{ forms.get("cvc")?.value }}</p>
+      </div>
+      <p class="description-bottom">
+        t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+      </p>
+
+
+
+    </mat-card-content>
+
+
+  </mat-card>
+
+  <form class="content-form" [formGroup]="forms">
+
+
+<div class="row-1">
+
+  <mat-form-field>
+    <input matInput type="text" placeholder="Card Number" formControlName="cardNumber" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <input type="text" matInput placeholder="Nick Name" formControlName="nickName" />
+  </mat-form-field>
+
+
+</div>
+
+<div class="row-2">
+
+  <mat-form-field>
+    <input type="text" matInput placeholder="Vencimento" formControlName="vencimento" />
+
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <input type="text" matInput placeholder="CVC" id="cvc" (click)="virar()"  formControlName="cvc"/>
+
+  </mat-form-field>
+
+
+</div>
+
+
+    <button>Submit</button>
+  </form>
+
+</div>
