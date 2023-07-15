@@ -1,53 +1,44 @@
 import { AfterViewInit, Component, ElementRef, Renderer2 } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  styleUrls: ['./card.component.scss'],
 })
-export class CardComponent implements AfterViewInit{
-
+export class CardComponent implements AfterViewInit {
   forms: FormGroup;
 
-
-  constructor(private fb: FormBuilder,
+  constructor(
+    private fb: FormBuilder,
     private element: ElementRef,
     private render: Renderer2
-){
+  ) {
     this.forms = this.fb.group({
       cardNumber: [''],
       nickName: [''],
       vencimento: [''],
-      cvc: ['']
-    })
+      cvc: [''],
+    });
+  }
+
+  virar(): void {
+    const card = this.element.nativeElement.querySelector('#card');
+    this.render.setStyle(card, 'transform', 'rotateY(180deg)');
   }
 
 
-
-
-
-
-
-  virar():void{
-    const card = this.element.nativeElement.querySelector('#card')
-    this.render.setStyle(card, 'transform', 'rotateY(180deg)')
+  formatarNumero(numero: string): string {
+    const numeroFormatado = numero.toString().replace(/\s/g, '').match(/.{1,4}/g);
+    return numeroFormatado ? numeroFormatado.join(' ') : '';
   }
-
-
-
 
   ngAfterViewInit(): void {
 
-
-
-
-
   }
-
-
-
-
-
-
 }

@@ -1,23 +1,21 @@
 <div class="body">
   <mat-card id="card">
     <mat-card-content class="card-front">
-      <div class="title">
-        <h1>Visa infinite</h1>
+      <div class="bandeira">
+        <img src="https://w7.pngwing.com/pngs/962/794/png-transparent-mastercard-credit-card-mastercard-logo-mastercard-logo-love-text-heart-thumbnail.png" >
       </div>
 
       <div class="card-number">
-        <i>icone</i>
-        <p>Número {{ forms.get("cardNumber")?.value }}</p>
+        <img class="chip" src="https://cdn-icons-png.flaticon.com/512/3877/3877368.png">
+        <p>numero : {{ formatarNumero(forms.get("cardNumber")?.value)}}</p>
       </div>
 
-      <div class="card-name">
+      <div class="card-name-val">
         <p>name: {{ forms.get("nickName")?.value }}</p>
+        <p>Val: {{ forms.get("vencimento")?.value }}</p>
       </div>
 
-      <div class="card-val">
-        <p>Val: {{ forms.get("vencimento")?.value }}</p>
-        <p>VISA</p>
-      </div>
+
     </mat-card-content>
 
 
@@ -44,11 +42,11 @@
 <div class="row-1">
 
   <mat-form-field>
-    <input matInput type="text" placeholder="Card Number" formControlName="cardNumber" />
+    <input id="card-input" matInput type="text" placeholder="Card Number" formControlName="cardNumber" maxlength="16" />
   </mat-form-field>
 
   <mat-form-field>
-    <input type="text" matInput placeholder="Nick Name" formControlName="nickName" />
+    <input type="text" matInput placeholder="Nick Name" formControlName="nickName" maxlength="16"/>
   </mat-form-field>
 
 
@@ -57,13 +55,13 @@
 <div class="row-2">
 
   <mat-form-field>
-    <input type="text" matInput placeholder="Vencimento" formControlName="vencimento" />
+    <input type="text" matInput placeholder="Vencimento" formControlName="vencimento" maxlength="4" />
 
   </mat-form-field>
 
 
   <mat-form-field>
-    <input type="text" matInput placeholder="CVC" id="cvc" (click)="virar()"  formControlName="cvc"/>
+    <input type="text" matInput placeholder="CVC" id="cvc" (click)="virar()"  formControlName="cvc" maxlength="3"/>
 
   </mat-form-field>
 
