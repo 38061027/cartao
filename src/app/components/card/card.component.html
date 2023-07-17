@@ -1,75 +1,155 @@
 <div class="body">
   <mat-card id="card">
     <mat-card-content class="card-front">
+      <!--  Bandeira cartão -->
+
       <div class="bandeira">
-        <img src="https://w7.pngwing.com/pngs/962/794/png-transparent-mastercard-credit-card-mastercard-logo-mastercard-logo-love-text-heart-thumbnail.png" >
+        <img
+          src="https://logodownload.org/wp-content/uploads/2014/07/mastercard-logo-7.png"
+        />
       </div>
+
+      <!--  Número do cartão -->
 
       <div class="card-number">
-        <img class="chip" src="https://cdn-icons-png.flaticon.com/512/3877/3877368.png">
-        <p>numero : {{ formatarNumero(forms.get("cardNumber")?.value)}}</p>
+        <img
+          class="chip"
+          src="https://cdn-icons-png.flaticon.com/512/3877/3877368.png"
+        />
+        <p
+          *ngIf="!forms.get('cardNumber')?.value; else conteudoElse"
+          class="preloaded-value-number"
+        >
+          {{ valorPreCarregado }}
+        </p>
+
+        <ng-template #conteudoElse>
+          <p>{{ formatarNumero(forms.get("cardNumber")?.value) }}</p>
+        </ng-template>
       </div>
+
+      <!-- Val do cartão -->
 
       <div class="card-name-val">
-        <p>name: {{ forms.get("nickName")?.value }}</p>
-        <p>Val: {{ forms.get("vencimento")?.value }}</p>
+        <p
+          *ngIf="!forms.get('nickName')?.value; else conteudoName"
+          class="preloaded-value-name"
+        >
+          {{ namePreCarregado }}
+        </p>
+
+        <ng-template #conteudoName>
+          <p>{{ forms.get("nickName")?.value }}</p>
+        </ng-template>
+
+        <div>
+          <p
+            *ngIf="!forms.get('vencimento')?.value; else conteudoVal"
+            class="preloaded-value-val"
+          >
+            Val: {{ vencimentoPreCarregado }}
+          </p>
+
+          <ng-template #conteudoVal>
+            {{ forms.get("vencimento")?.value }}
+          </ng-template>
+        </div>
       </div>
-
-
     </mat-card-content>
 
+    <!-- CÓDIGO DE SEGURANÇA  PARTE DE TRÁS-->
 
     <mat-card-content class="card-back">
       <p class="description-top">t is a long established fact that a reader</p>
       <div class="barra-preta"></div>
+
       <div class="cvc">
-           <p>CVC: {{ forms.get("cvc")?.value }}</p>
+        <p
+          *ngIf="!forms.get('cvc')?.value; else conteudoCvc"
+          class="preloaded-value-text"
+        >
+          CVC: {{ cvcPreCarregado }}
+        </p>
+
+        <ng-template #conteudoCvc>
+          {{ forms.get("cvc")?.value }}
+        </ng-template>
       </div>
+
       <p class="description-bottom">
-        t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+        t is a long established fact that a reader will be distracted by the
+        readable content of a page when looking at its layout.
       </p>
-
-
-
     </mat-card-content>
-
-
   </mat-card>
 
+  <!-- FORMULÁRIO -->
+
   <form class="content-form" [formGroup]="forms">
+    <div class="row-1">
+      <!-- Input Número do cartão -->
 
+      <mat-form-field>
+        <input
+          id="number-card"
+          matInput
+          type="text"
+          placeholder="Card Number"
+          formControlName="cardNumber"
+          maxlength="16"
+          (keyup)="numberPre($event)"
+          [ngClass]="{ 'preloaded-value': !forms.get('cardNumber')?.value }"
+        />
+      </mat-form-field>
 
-<div class="row-1">
+      <!-- Input Nome Do usuário -->
 
-  <mat-form-field>
-    <input id="card-input" matInput type="text" placeholder="Card Number" formControlName="cardNumber" maxlength="16" />
-  </mat-form-field>
+      <mat-form-field>
+        <input
+          id="name-card"
+          type="text"
+          matInput
+          placeholder="Nick Name"
+          formControlName="nickName"
+          maxlength="16"
+          (keyup)="namePre($event)"
+          [ngClass]="{ 'preloaded-value': !forms.get('nickName')?.value }"
+        />
+      </mat-form-field>
+    </div>
 
-  <mat-form-field>
-    <input type="text" matInput placeholder="Nick Name" formControlName="nickName" maxlength="16"/>
-  </mat-form-field>
+    <div class="row-2">
+      <!--  Input Vencimento -->
 
+      <mat-form-field>
+        <input
+          type="text"
+          matInput
+          placeholder="Vencimento"
+          formControlName="vencimento"
+          maxlength="4"
+          (keyup)="valPre($event)"
+          [ngClass]="{ 'preloaded-value': !forms.get('vencimento')?.value }"
+        />
+      </mat-form-field>
 
-</div>
+      <!-- Input CÓDIGO DE SEGURANÇA -->
 
-<div class="row-2">
+      <mat-form-field>
+        <input
+          type="text"
+          matInput
+          placeholder="CVC"
+          id="cvc"
+          (click)="virar()"
+          formControlName="cvc"
+          maxlength="3"
+          (keyup)="cvcPre($event)"
+          [ngClass]="{ 'preloaded-value': !forms.get('cvc')?.value }"
+        />
+      </mat-form-field>
+    </div>
 
-  <mat-form-field>
-    <input type="text" matInput placeholder="Vencimento" formControlName="vencimento" maxlength="4" />
-
-  </mat-form-field>
-
-
-  <mat-form-field>
-    <input type="text" matInput placeholder="CVC" id="cvc" (click)="virar()"  formControlName="cvc" maxlength="3"/>
-
-  </mat-form-field>
-
-
-</div>
-
-
-    <button>Submit</button>
+    <button type="submit">Submit</button>
   </form>
-
 </div>
