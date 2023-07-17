@@ -12,10 +12,17 @@
       <!--  Número do cartão -->
 
       <div class="card-number">
-        <img
-          class="chip"
-          src="https://cdn-icons-png.flaticon.com/512/3877/3877368.png"
-        />
+        <div class="card-chip-aproximacao">
+          <img
+            class="chip"
+            src="https://cdn-icons-png.flaticon.com/512/3877/3877368.png"
+          />
+          <img
+            class="aproximacao"
+            src="https://imagepng.org/wp-content/uploads/2019/08/nfc-icon.png"
+          />
+        </div>
+
         <p
           *ngIf="!forms.get('cardNumber')?.value; else conteudoElse"
           class="preloaded-value-number"
@@ -72,7 +79,7 @@
         </p>
 
         <ng-template #conteudoCvc>
-          {{ forms.get("cvc")?.value }}
+          CVC: {{ forms.get("cvc")?.value }}
         </ng-template>
       </div>
 
@@ -94,7 +101,7 @@
           id="number-card"
           matInput
           type="text"
-          placeholder="Card Number"
+          placeholder="Número do cartão"
           formControlName="cardNumber"
           maxlength="16"
           (keyup)="numberPre($event)"
@@ -109,7 +116,7 @@
           id="name-card"
           type="text"
           matInput
-          placeholder="Nick Name"
+          placeholder="Nome"
           formControlName="nickName"
           maxlength="16"
           (keyup)="namePre($event)"
@@ -141,7 +148,8 @@
           matInput
           placeholder="CVC"
           id="cvc"
-          (click)="virar()"
+          (focus)="virar()"
+          (blur)="desfoque()"
           formControlName="cvc"
           maxlength="3"
           (keyup)="cvcPre($event)"
@@ -150,6 +158,8 @@
       </mat-form-field>
     </div>
 
-    <button type="submit">Submit</button>
+    <button class="submit-btn" mat-raised-button color="primary" type="submit">
+      Enviar
+    </button>
   </form>
 </div>

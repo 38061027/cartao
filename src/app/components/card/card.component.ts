@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Renderer2 } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -11,13 +11,13 @@ import {
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
 })
-export class CardComponent implements AfterViewInit {
+export class CardComponent implements OnInit {
   forms: FormGroup;
 
-  valorPreCarregado: string = '1246 8742 9452 7631'
-  namePreCarregado: string = 'José Augusto'
-  vencimentoPreCarregado: string = '02/29'
-  cvcPreCarregado: string = '02/29'
+  valorPreCarregado: string = '**** **** **** ****';
+  namePreCarregado: string = 'José Augusto';
+  vencimentoPreCarregado: string = '02/29';
+  cvcPreCarregado: string = '123';
 
   constructor(
     private fb: FormBuilder,
@@ -37,15 +37,20 @@ export class CardComponent implements AfterViewInit {
     this.render.setStyle(card, 'transform', 'rotateY(180deg)');
   }
 
-
-  formatarNumero(numero: string): string {
-    const numeroFormatado = numero.toString().replace(/\s/g, '').match(/.{1,4}/g);
-    return numeroFormatado ? numeroFormatado.join(' ') : '';
+  desfoque(): void {
+    const card = this.element.nativeElement.querySelector('#card');
+    this.render.setStyle(card, 'transform', 'rotateY(0deg)');
   }
 
+  ngOnInit(): void {}
 
-  
-
+  formatarNumero(numero: string): string {
+    const numeroFormatado = numero
+      .toString()
+      .replace(/\s/g, '')
+      .match(/.{1,4}/g);
+    return numeroFormatado ? numeroFormatado.join(' ') : '';
+  }
 
   numberPre(event: KeyboardEvent): void {
     const cardInput = event.target as HTMLInputElement;
@@ -67,15 +72,11 @@ export class CardComponent implements AfterViewInit {
       cardInput.value = '';
     }
   }
+
   cvcPre(event: KeyboardEvent): void {
     const cardInput = event.target as HTMLInputElement;
     if (cardInput.value === this.cvcPreCarregado) {
       cardInput.value = '';
     }
-  }
-
-
-  ngAfterViewInit(): void {
-
   }
 }
