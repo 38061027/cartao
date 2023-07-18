@@ -58,7 +58,11 @@
           </p>
 
           <ng-template #conteudoVal>
-            {{ forms.get("vencimento")?.value }}
+            {{
+              forms.get("vencimento")?.value.slice(0, 2) +
+                "/" +
+                forms.get("vencimento")?.value.slice(2)
+            }}
           </ng-template>
         </div>
       </div>
@@ -92,12 +96,13 @@
 
   <!-- FORMULÁRIO -->
 
-  <form class="content-form" [formGroup]="forms">
-    <div class="row-1">
+  <form class="content-form" [formGroup]="forms" (ngSubmit)="onSubmit()">
+    <div class="row">
       <!-- Input Número do cartão -->
 
       <mat-form-field>
         <input
+          required
           id="number-card"
           matInput
           type="text"
@@ -116,6 +121,7 @@
           id="name-card"
           type="text"
           matInput
+          required
           placeholder="Nome"
           formControlName="nickName"
           maxlength="16"
@@ -125,13 +131,14 @@
       </mat-form-field>
     </div>
 
-    <div class="row-2">
+    <div class="row">
       <!--  Input Vencimento -->
 
       <mat-form-field>
         <input
           type="text"
           matInput
+          required
           placeholder="Vencimento"
           formControlName="vencimento"
           maxlength="4"
@@ -145,6 +152,7 @@
       <mat-form-field>
         <input
           type="text"
+          required
           matInput
           placeholder="CVC"
           id="cvc"
@@ -158,8 +166,17 @@
       </mat-form-field>
     </div>
 
-    <button class="submit-btn" mat-raised-button color="primary" type="submit">
+    <button
+      class="submit-btn"
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!forms.valid"
+
+    >
       Enviar
     </button>
+
+ 
   </form>
 </div>

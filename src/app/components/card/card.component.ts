@@ -1,10 +1,16 @@
-import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  Renderer2,
+} from '@angular/core';
 import {
   FormBuilder,
-  FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-card',
@@ -14,6 +20,8 @@ import {
 export class CardComponent implements OnInit {
   forms: FormGroup;
 
+
+
   valorPreCarregado: string = '**** **** **** ****';
   namePreCarregado: string = 'José Augusto';
   vencimentoPreCarregado: string = '02/29';
@@ -22,7 +30,8 @@ export class CardComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private element: ElementRef,
-    private render: Renderer2
+    private render: Renderer2,
+
   ) {
     this.forms = this.fb.group({
       cardNumber: [''],
@@ -31,6 +40,14 @@ export class CardComponent implements OnInit {
       cvc: [''],
     });
   }
+
+ 
+
+  onSubmit(): void {
+    console.log(this.forms.value);
+  }
+
+
 
   virar(): void {
     const card = this.element.nativeElement.querySelector('#card');
