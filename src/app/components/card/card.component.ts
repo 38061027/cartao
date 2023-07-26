@@ -34,21 +34,20 @@ export class CardComponent implements OnInit {
 
   ) {
     this.forms = this.fb.group({
-      cardNumber: [''],
+      cardNumber: ['', [Validators.required]],
       nickName: [''],
       vencimento: [''],
       cvc: [''],
     });
   }
 
- 
+
 
   onSubmit(): void {
     console.log(this.forms.value);
   }
 
-
-
+ 
   virar(): void {
     const card = this.element.nativeElement.querySelector('#card');
     this.render.setStyle(card, 'transform', 'rotateY(180deg)');

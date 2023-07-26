@@ -16,12 +16,20 @@
   justify-content: center;
   align-items: center;
 }
+.content-form .required-paragrafo{
+color: red;
+}
 
 .content-form .row {
   display: flex;
   flex-direction: row;
   gap: 10px;
 }
+
+.content-form .row mat-form-field{
+  max-height: 80px;
+}
+
 
 .content-form .submit-btn {
   width: 35%;
