@@ -48,6 +48,9 @@
   gap: 20px;
   margin-left: 1rem;
 }
+.card-number .preloaded-value-number i{
+  font-size: medium;
+}
 .card-number .card-chip-aproximacao {
   display: flex;
   flex-direction: row;
@@ -71,6 +74,36 @@
   margin-top: 1rem;
   margin-left: 1rem;
 }
+.card-name-val .preloaded-value-name{
+font-size: medium;
+}
+.card-name-val .preloaded-value-val{
+display: flex;
+flex-direction: row;
+
+
+}
+.card-name-val .preloaded-value-val a{
+color: #333;
+font-weight: bold;
+font-size: 0.8rem;
+}
+.card-name-val .preloaded-value-val .valid{
+display: flex;
+flex-direction: column;
+position: relative;
+}
+.card-name-val .preloaded-value-val .valid i{
+  color: #333;
+  font-size: xx-small;
+margin-right: 0.3rem;
+  font-weight: bold;
+}
+.card-name-val .preloaded-value-val .valid .thru{
+position: absolute;
+  top: 50%;
+}
+
 
 .card-front .title {
   display: flex;

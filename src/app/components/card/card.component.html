@@ -27,11 +27,11 @@
           *ngIf="!forms.get('cardNumber')?.value; else conteudoElse"
           class="preloaded-value-number"
         >
-          {{ valorPreCarregado }}
+          <i >{{ valorPreCarregado }}</i>
         </p>
 
         <ng-template #conteudoElse>
-          <p>{{ formatarNumero(forms.get("cardNumber")?.value) }}</p>
+          <p> {{ formatarNumero(forms.get("cardNumber")?.value) }}</p>
         </ng-template>
       </div>
 
@@ -42,7 +42,7 @@
           *ngIf="!forms.get('nickName')?.value; else conteudoName"
           class="preloaded-value-name"
         >
-          {{ namePreCarregado }}
+          <i>{{ namePreCarregado }}</i>
         </p>
 
         <ng-template #conteudoName>
@@ -54,10 +54,17 @@
             *ngIf="!forms.get('vencimento')?.value; else conteudoVal"
             class="preloaded-value-val"
           >
-            Val: {{ vencimentoPreCarregado }}
+
+            <a class="valid">
+              <i>VALID</i>
+              <i class="thru">THRU</i>
+            </a>
+
+            <a>{{ vencimentoPreCarregado }}</a>
           </p>
 
           <ng-template #conteudoVal>
+
             {{
               forms.get("vencimento")?.value.slice(0, 2) +
                 "/" +
@@ -79,7 +86,7 @@
           *ngIf="!forms.get('cvc')?.value; else conteudoCvc"
           class="preloaded-value-text"
         >
-          CVC: {{ cvcPreCarregado }}
+          <i>CVC</i> {{ cvcPreCarregado }}
         </p>
 
         <ng-template #conteudoCvc>
@@ -177,6 +184,6 @@
       Enviar
     </button>
 
- 
+
   </form>
 </div>
