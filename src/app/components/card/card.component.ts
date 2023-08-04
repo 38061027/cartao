@@ -5,11 +5,7 @@ import {
   OnInit,
   Renderer2,
 } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -20,8 +16,6 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 export class CardComponent implements OnInit {
   forms: FormGroup;
 
-
-
   valorPreCarregado: string = '**** **** **** ****';
   namePreCarregado: string = 'José Augusto';
   vencimentoPreCarregado: string = '02/29';
@@ -30,8 +24,7 @@ export class CardComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private element: ElementRef,
-    private render: Renderer2,
-
+    private render: Renderer2
   ) {
     this.forms = this.fb.group({
       cardNumber: ['', [Validators.required]],
@@ -41,13 +34,11 @@ export class CardComponent implements OnInit {
     });
   }
 
-
-
   onSubmit(): void {
-    console.log(this.forms.value);
+
+   (this.forms.value);
   }
 
- 
   virar(): void {
     const card = this.element.nativeElement.querySelector('#card');
     this.render.setStyle(card, 'transform', 'rotateY(180deg)');
@@ -58,7 +49,15 @@ export class CardComponent implements OnInit {
     this.render.setStyle(card, 'transform', 'rotateY(0deg)');
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+
+
+  }
+
+
+
+
 
   formatarNumero(numero: string): string {
     const numeroFormatado = numero
