@@ -27,5 +27,5 @@
 + ElementRef
 
 
-## What can i do on this site?
-+ fill out a credit card form!
+## What can i to see on this site?
++ design and a credit card form
