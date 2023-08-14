@@ -4,22 +4,13 @@
       <!--  Bandeira cartão -->
 
 
-
-
       <div class="bandeira">
-        <img
-          src="https://logodownload.org/wp-content/uploads/2014/07/mastercard-logo-7.png"
-        />
+
+        <img *ngIf="bandeiraImageUrl" [src]="bandeiraImageUrl" alt="Bandeira do Cartão">
+
       </div>
 
-
-
-
       <!--  Número do cartão -->
-
-
-
-
 
       <div class="card-number">
         <div class="card-chip-aproximacao">
@@ -37,22 +28,13 @@
           *ngIf="!forms.get('cardNumber')?.value; else conteudoElse"
           class="preloaded-value-number"
         >
-          <i >{{ valorPreCarregado }}</i>
+          <i>{{ valorPreCarregado }}</i>
         </p>
 
         <ng-template #conteudoElse>
-          <p> {{ formatarNumero(forms.get("cardNumber")?.value) }}</p>
+          <p>{{ formatarNumero(forms.get("cardNumber")?.value) }}</p>
         </ng-template>
-
-
-
-
       </div>
-
-
-
-
-
 
       <!-- Val do cartão -->
 
@@ -73,7 +55,6 @@
             *ngIf="!forms.get('vencimento')?.value; else conteudoVal"
             class="preloaded-value-val"
           >
-
             <a class="valid">
               <i>VALID</i>
               <i class="thru">THRU</i>
@@ -82,8 +63,7 @@
             <a>{{ vencimentoPreCarregado }}</a>
           </p>
 
-          <ng-template #conteudoVal>
-
+          <ng-template class="ng-val" #conteudoVal>
             {{
               forms.get("vencimento")?.value.slice(0, 2) +
                 "/" +
@@ -126,126 +106,118 @@
     <div class="row first">
       <!-- Input Número do cartão -->
 
-
-        <mat-form-field >
-          <input
-            required
-            id="number-card"
-            matInput
-            type="text"
-            placeholder="Número do cartão"
-            formControlName="cardNumber"
-            maxlength="16"
-            (keyup)="numberPre($event)"
-            [ngClass]="{ 'preloaded-value': !forms.get('cardNumber')?.value }"
-          />
-          <mat-error *ngIf="forms.get('cardNumber')?.hasError('cardNumber') && !forms.get('cardNumber')?.hasError('required')">
-            Please enter a valid card number
-          </mat-error>
-          <mat-error *ngIf="forms.get('cardNumber')?.hasError('required')">
-           Digite o número do cartão!
-          </mat-error>
-
-
-        </mat-form-field>
-
-
-
+      <mat-form-field>
+        <input
+          required
+          id="number-card"
+          matInput
+          type="text"
+          placeholder="Número do cartão"
+          formControlName="cardNumber"
+          maxlength="16"
+          (keyup)="trocarBandeira()"
+          (keyup)="numberPre($event)"
+          [ngClass]="{ 'preloaded-value': !forms.get('cardNumber')?.value }"
+        />
+        <mat-error
+          *ngIf="
+            forms.get('cardNumber')?.hasError('cardNumber') &&
+            !forms.get('cardNumber')?.hasError('required')
+          "
+        >
+          Please enter a valid card number
+        </mat-error>
+        <mat-error *ngIf="forms.get('cardNumber')?.hasError('required')">
+          Digite o número do cartão!
+        </mat-error>
+      </mat-form-field>
 
       <!-- Input Nome Do usuário -->
 
+      <mat-form-field>
+        <input
+          id="name-card"
+          type="text"
+          matInput
+          required
+          placeholder="Nome"
+          formControlName="nickName"
+          maxlength="16"
+          (keyup)="namePre($event)"
+          [ngClass]="{ 'preloaded-value': !forms.get('nickName')?.value }"
+        />
 
-
-
-        <mat-form-field>
-          <input
-            id="name-card"
-            type="text"
-            matInput
-            required
-            placeholder="Nome"
-            formControlName="nickName"
-            maxlength="16"
-            (keyup)="namePre($event)"
-            [ngClass]="{ 'preloaded-value': !forms.get('nickName')?.value }"
-          />
-
-          <mat-error *ngIf="forms.get('nickName')?.hasError('nickName') && !forms.get('nickName')?.hasError('required')">
-            Please enter a valid name
-          </mat-error>
-          <mat-error *ngIf="forms.get('nickName')?.hasError('required')">
-            Digite seu nome!
-          </mat-error>
-
-        </mat-form-field>
-
-
-
-
-
+        <mat-error
+          *ngIf="
+            forms.get('nickName')?.hasError('nickName') &&
+            !forms.get('nickName')?.hasError('required')
+          "
+        >
+          Please enter a valid name
+        </mat-error>
+        <mat-error *ngIf="forms.get('nickName')?.hasError('required')">
+          Digite seu nome!
+        </mat-error>
+      </mat-form-field>
     </div>
-
-
-
-
 
     <div class="row second">
       <!--  Input Vencimento -->
 
+      <mat-form-field>
+        <input
+          type="text"
+          matInput
+          required
+          placeholder="Vencimento"
+          formControlName="vencimento"
+          maxlength="4"
+          (keyup)="valPre($event)"
+          [ngClass]="{ 'preloaded-value': !forms.get('vencimento')?.value }"
+        />
 
-
-        <mat-form-field>
-          <input
-            type="text"
-            matInput
-            required
-            placeholder="Vencimento"
-            formControlName="vencimento"
-            maxlength="4"
-            (keyup)="valPre($event)"
-            [ngClass]="{ 'preloaded-value': !forms.get('vencimento')?.value }"
-          />
-
-          <mat-error *ngIf="forms.get('vencimento')?.hasError('vencimento') && !forms.get('vencimento')?.hasError('required')">
-            Please enter a valid vencimento
-          </mat-error>
-          <mat-error *ngIf="forms.get('vencimento')?.hasError('required')">
-            Digite o vencimento do cartão!
-          </mat-error>
-
-        </mat-form-field>
-
+        <mat-error
+          *ngIf="
+            forms.get('vencimento')?.hasError('vencimento') &&
+            !forms.get('vencimento')?.hasError('required')
+          "
+        >
+          Please enter a valid vencimento
+        </mat-error>
+        <mat-error *ngIf="forms.get('vencimento')?.hasError('required')">
+          Digite o vencimento do cartão!
+        </mat-error>
+      </mat-form-field>
 
       <!-- Input CÓDIGO DE SEGURANÇA -->
 
+      <mat-form-field>
+        <input
+          type="text"
+          required
+          matInput
+          placeholder="CVC"
+          id="cvc"
+          (focus)="virar()"
+          (blur)="desfoque()"
+          formControlName="cvc"
+          maxlength="3"
+          (keyup)="cvcPre($event)"
+          [ngClass]="{ 'preloaded-value': !forms.get('cvc')?.value }"
+        />
 
-
-
-        <mat-form-field>
-          <input
-            type="text"
-            required
-            matInput
-            placeholder="CVC"
-            id="cvc"
-            (focus)="virar()"
-            (blur)="desfoque()"
-            formControlName="cvc"
-            maxlength="3"
-            (keyup)="cvcPre($event)"
-            [ngClass]="{ 'preloaded-value': !forms.get('cvc')?.value }"
-          />
-
-
-          <mat-error *ngIf="forms.get('cvc')?.hasError('cvc') && !forms.get('cvc')?.hasError('required')">
-            Please enter a valid cvc
-          </mat-error>
-          <mat-error *ngIf="forms.get('cvc')?.hasError('required')">
-           Digite o código de segurança!
-          </mat-error>
-        </mat-form-field>
-
-
+        <mat-error
+          *ngIf="
+            forms.get('cvc')?.hasError('cvc') &&
+            !forms.get('cvc')?.hasError('required')
+          "
+        >
+          Please enter a valid cvc
+        </mat-error>
+        <mat-error *ngIf="forms.get('cvc')?.hasError('required')">
+          Digite o código de segurança!
+        </mat-error>
+      </mat-form-field>
     </div>
 
     <button
@@ -254,11 +226,8 @@
       color="primary"
       type="submit"
       [disabled]="!forms.valid"
-
     >
       Enviar
     </button>
-
-
   </form>
 </div>

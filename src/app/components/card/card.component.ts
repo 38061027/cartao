@@ -16,6 +16,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 export class CardComponent implements OnInit {
   forms: FormGroup;
 
+  bandeiraImageUrl: string = '';
   valorPreCarregado: string = '**** **** **** ****';
   namePreCarregado: string = 'José Augusto';
   vencimentoPreCarregado: string = '02/29';
@@ -27,16 +28,15 @@ export class CardComponent implements OnInit {
     private render: Renderer2
   ) {
     this.forms = this.fb.group({
-      cardNumber: ['', [Validators.required]],
-      nickName: [''],
-      vencimento: [''],
-      cvc: [''],
+      cardNumber: ['', [Validators.required , Validators.minLength(16)]],
+      nickName: ['', [Validators.required , Validators.minLength(15)]],
+      vencimento: ['', [Validators.required , Validators.minLength(4)]],
+      cvc: ['', [Validators.required , Validators.minLength(3)]],
     });
   }
 
   onSubmit(): void {
-
-   (this.forms.value);
+   console.log(this.forms.value);
   }
 
   virar(): void {
@@ -50,11 +50,31 @@ export class CardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-
+this.trocarBandeira()
 
   }
 
+
+  trocarBandeira() {
+    const cardNumberInput = this.element.nativeElement.querySelector("#number-card");
+    const cardNumberValue = cardNumberInput.value;
+
+    if (cardNumberValue.charAt(0) === '4') {
+      this.bandeiraImageUrl = 'https://www.mobills.com.br/blog/wp-content/uploads/2022/06/logo-da-visa-bandeira-cartao.png';
+    }else if(cardNumberValue.charAt(0) === '5'){
+      this.bandeiraImageUrl = 'https://logodownload.org/wp-content/uploads/2014/07/mastercard-logo-7.png'
+    }else if(cardNumberValue.charAt(0) === '3' && cardNumberValue.charAt(1) === '4'){
+      this.bandeiraImageUrl = 'https://www.mobills.com.br/blog/wp-content/uploads/2022/06/logo-da-bandeira-american-express-amex.png'
+    }else if(cardNumberValue.charAt(0) === '6'){
+      this.bandeiraImageUrl = 'https://marcas-logos.net/wp-content/uploads/2021/06/Discover-logo.png'
+    }else if(cardNumberValue.charAt(0) === '7'){
+      this.bandeiraImageUrl = 'https://brand.mastercard.com/content/dam/mccom/brandcenter-br/other-marks/othermarks_maestro_vrt_2x.png'
+    }else if(cardNumberValue.charAt(0) === '3'){
+      this.bandeiraImageUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Elo_card_association_logo_-_black_text.svg/1200px-Elo_card_association_logo_-_black_text.svg.png'
+    }else {
+      this.bandeiraImageUrl = '';
+    }
+  }
 
 
 
