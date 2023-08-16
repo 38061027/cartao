@@ -16,7 +16,7 @@
         <div class="card-chip-aproximacao">
           <img
             class="chip"
-            src="https://cdn-icons-png.flaticon.com/512/3877/3877368.png"
+            src="https://img.freepik.com/icones-gratis/cartao-de-credito_318-534836.jpg"
           />
           <img
             class="aproximacao"
@@ -119,14 +119,7 @@
           (keyup)="numberPre($event)"
           [ngClass]="{ 'preloaded-value': !forms.get('cardNumber')?.value }"
         />
-        <mat-error
-          *ngIf="
-            forms.get('cardNumber')?.hasError('cardNumber') &&
-            !forms.get('cardNumber')?.hasError('required')
-          "
-        >
-          Please enter a valid card number
-        </mat-error>
+
         <mat-error *ngIf="forms.get('cardNumber')?.hasError('required')">
           Digite o número do cartão!
         </mat-error>
@@ -147,14 +140,7 @@
           [ngClass]="{ 'preloaded-value': !forms.get('nickName')?.value }"
         />
 
-        <mat-error
-          *ngIf="
-            forms.get('nickName')?.hasError('nickName') &&
-            !forms.get('nickName')?.hasError('required')
-          "
-        >
-          Please enter a valid name
-        </mat-error>
+
         <mat-error *ngIf="forms.get('nickName')?.hasError('required')">
           Digite seu nome!
         </mat-error>
@@ -176,14 +162,7 @@
           [ngClass]="{ 'preloaded-value': !forms.get('vencimento')?.value }"
         />
 
-        <mat-error
-          *ngIf="
-            forms.get('vencimento')?.hasError('vencimento') &&
-            !forms.get('vencimento')?.hasError('required')
-          "
-        >
-          Please enter a valid vencimento
-        </mat-error>
+
         <mat-error *ngIf="forms.get('vencimento')?.hasError('required')">
           Digite o vencimento do cartão!
         </mat-error>
@@ -206,14 +185,6 @@
           [ngClass]="{ 'preloaded-value': !forms.get('cvc')?.value }"
         />
 
-        <mat-error
-          *ngIf="
-            forms.get('cvc')?.hasError('cvc') &&
-            !forms.get('cvc')?.hasError('required')
-          "
-        >
-          Please enter a valid cvc
-        </mat-error>
         <mat-error *ngIf="forms.get('cvc')?.hasError('required')">
           Digite o código de segurança!
         </mat-error>

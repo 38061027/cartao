@@ -28,7 +28,7 @@ export class CardComponent implements OnInit {
     private render: Renderer2
   ) {
     this.forms = this.fb.group({
-      cardNumber: ['', [Validators.required , Validators.minLength(16)]],
+      cardNumber: ['', [Validators.required , Validators.minLength(16), Validators.pattern('^[0-9]$')]],
       nickName: ['', [Validators.required , Validators.minLength(15)]],
       vencimento: ['', [Validators.required , Validators.minLength(4)]],
       cvc: ['', [Validators.required , Validators.minLength(3)]],
@@ -53,6 +53,8 @@ export class CardComponent implements OnInit {
 this.trocarBandeira()
 
   }
+
+
 
 
   trocarBandeira() {

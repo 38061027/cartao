@@ -38,11 +38,11 @@
 .bandeira {
   display: flex;
   justify-content: flex-end;
-  height: 2rem;
+  height: 2.1rem;
 }
 
 .bandeira img {
-  width: 60px;
+  width: 65px;
   height: 2.1rem;
 }
 
@@ -158,13 +158,11 @@
 }
 
 #card .card-front {
-  background: #d7783d;
-  background: linear-gradient(0deg, #d7783d 0%, #6b89cf 100%);
+  background-color: #68a4d4;
 }
 
 #card .card-back {
-  background: #d7783d;
-  background: linear-gradient(0deg, #d7783d 0%, #6b89cf 100%);
+  background-color: #5a9ddb;
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;

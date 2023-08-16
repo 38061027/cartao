@@ -20,7 +20,7 @@ var CardComponent = /** @class */ (function () {
         this.vencimentoPreCarregado = '02/29';
         this.cvcPreCarregado = '123';
         this.forms = this.fb.group({
-            cardNumber: ['', [forms_1.Validators.required, forms_1.Validators.minLength(16)]],
+            cardNumber: ['', [forms_1.Validators.required, forms_1.Validators.minLength(16), forms_1.Validators.pattern('^[0-9]$')]],
             nickName: ['', [forms_1.Validators.required, forms_1.Validators.minLength(15)]],
             vencimento: ['', [forms_1.Validators.required, forms_1.Validators.minLength(4)]],
             cvc: ['', [forms_1.Validators.required, forms_1.Validators.minLength(3)]]
