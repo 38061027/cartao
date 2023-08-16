@@ -25,6 +25,7 @@
 + Events
 + Renderer 2
 + ElementRef
++ Two-way binding
 
 
 ## What can i to see on this site?
