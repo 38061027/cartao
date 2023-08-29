@@ -1,13 +1,19 @@
 <div class="body">
-  <mat-card id="card"  >
-    <mat-card-content class="card-front" [style.background-color]="bandeiraColor">
+
+
+  <mat-card id="card">
+    <mat-card-content
+      class="card-front"
+      [style.background-color]="bandeiraColor"
+    >
       <!--  Bandeira cartão -->
 
-
       <div class="bandeira">
-
-        <img *ngIf="bandeiraImageUrl" [src]="bandeiraImageUrl" alt="Bandeira do Cartão">
-
+        <img
+          *ngIf="bandeiraImageUrl"
+          [src]="bandeiraImageUrl"
+          alt="Bandeira do Cartão"
+        />
       </div>
 
       <!--  Número do cartão -->
@@ -51,7 +57,7 @@
         </ng-template>
 
         <div>
-          <p
+          <div
             *ngIf="!forms.get('vencimento')?.value; else conteudoVal"
             class="preloaded-value-val"
           >
@@ -61,14 +67,22 @@
             </a>
 
             <a>{{ vencimentoPreCarregado }}</a>
-          </p>
-
+          </div>
           <ng-template class="ng-val" #conteudoVal>
-            {{
-              forms.get("vencimento")?.value.slice(0, 2) +
-                "/" +
-                forms.get("vencimento")?.value.slice(2)
-            }}
+            <div class="ng-content">
+              <a class="valid">
+                <i>VALID</i>
+                <i class="thru">THRU</i>
+              </a>
+
+              <a>
+                {{
+                  forms.get("vencimento")?.value.slice(0, 2) +
+                    "/" +
+                    forms.get("vencimento")?.value.slice(2)
+                }}
+              </a>
+            </div>
           </ng-template>
         </div>
       </div>
@@ -76,7 +90,7 @@
 
     <!-- CÓDIGO DE SEGURANÇA  PARTE DE TRÁS-->
 
-    <mat-card-content class="card-back">
+    <mat-card-content class="card-back"  [style.background-color]="bandeiraColor">
       <p class="description-top">t is a long established fact that a reader</p>
       <div class="barra-preta"></div>
 
@@ -89,7 +103,7 @@
         </p>
 
         <ng-template #conteudoCvc>
-          CVC: {{ forms.get("cvc")?.value }}
+          <p><i>CVC</i> {{ forms.get("cvc")?.value }}</p>
         </ng-template>
       </div>
 
@@ -140,7 +154,6 @@
           [ngClass]="{ 'preloaded-value': !forms.get('nickName')?.value }"
         />
 
-
         <mat-error *ngIf="forms.get('nickName')?.hasError('required')">
           Digite seu nome!
         </mat-error>
@@ -161,7 +174,6 @@
           (keyup)="valPre($event)"
           [ngClass]="{ 'preloaded-value': !forms.get('vencimento')?.value }"
         />
-
 
         <mat-error *ngIf="forms.get('vencimento')?.hasError('required')">
           Digite o vencimento do cartão!

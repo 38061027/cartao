@@ -97,26 +97,31 @@
   flex-direction: row;
 }
 
-.card-name-val .preloaded-value-val a {
+.ng-content {
+  display: flex;
+  flex-direction: row;
+}
+
+a {
   color: #333;
   font-weight: bold;
   font-size: 0.8rem;
 }
 
-.card-name-val .preloaded-value-val .valid {
+.valid {
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
-.card-name-val .preloaded-value-val .valid i {
+.valid i {
   color: #333;
   font-size: xx-small;
   margin-right: 0.3rem;
   font-weight: bold;
 }
 
-.card-name-val .preloaded-value-val .valid .thru {
+.valid .thru {
   position: absolute;
   top: 50%;
 }

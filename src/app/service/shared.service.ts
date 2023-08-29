@@ -1,43 +1,49 @@
+
+
+
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Bandeiras } from '../models/bandeiras.model';
+
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class SharedService {
-  constructor() {}
+
+  constructor() {
+  }
 
   bandeiraList: Bandeiras[] = [
     {
       name: 'visa',
       img: 'https://www.mobills.com.br/blog/wp-content/uploads/2022/06/logo-da-visa-bandeira-cartao.png',
-      color: 'red',
+
     },
     {
       name: 'mastercard',
       img: 'https://logodownload.org/wp-content/uploads/2014/07/mastercard-logo-7.png',
-      color: 'yellow',
+
     },
     {
       name: 'amex',
       img: 'https://www.mobills.com.br/blog/wp-content/uploads/2022/06/logo-da-bandeira-american-express-amex.png',
-      color: 'white',
+
     },
     {
       name: 'discover',
       img: 'https://marcas-logos.net/wp-content/uploads/2021/06/Discover-logo.png',
-      color: 'purple',
+
     },
     {
       name: 'maestro',
       img: 'https://brand.mastercard.com/content/dam/mccom/brandcenter-br/other-marks/othermarks_maestro_vrt_2x.png',
-      color: 'gray',
+
     },
     {
       name: 'elo',
       img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Elo_card_association_logo_-_black_text.svg/1200px-Elo_card_association_logo_-_black_text.svg.png',
-      color: 'orange',
+    
     },
   ];
 

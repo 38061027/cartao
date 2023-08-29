@@ -18,7 +18,7 @@ export class CardComponent implements OnInit {
   forms: FormGroup;
 
   bandeiraImageUrl: string = '';
-  bandeiraColor: string = '';
+  bandeiraColor: string = 'rgb(170, 170, 166)';
 
   valorPreCarregado: string = '**** **** **** ****';
   namePreCarregado: string = 'José Augusto';
@@ -64,19 +64,19 @@ export class CardComponent implements OnInit {
     this.trocarBandeira();
   }
 
-  trocarBandeira() {
+  trocarBandeira():void {
     const cardNumberInput =
-      this.element.nativeElement.querySelector('#number-card');
+    this.element.nativeElement.querySelector('#number-card');
     const cardNumberValue = cardNumberInput.value;
 
     const bandeira = this.sharedService.findBandeira(cardNumberValue);
 
     if (bandeira) {
       this.bandeiraImageUrl = bandeira.img;
-      this.bandeiraColor = bandeira.color;
+
     } else {
       this.bandeiraImageUrl = '';
-      this.bandeiraColor = '';
+
     }
   }
 

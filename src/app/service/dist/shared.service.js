@@ -13,33 +13,27 @@ var SharedService = /** @class */ (function () {
         this.bandeiraList = [
             {
                 name: 'visa',
-                img: 'https://www.mobills.com.br/blog/wp-content/uploads/2022/06/logo-da-visa-bandeira-cartao.png',
-                color: 'red'
+                img: 'https://www.mobills.com.br/blog/wp-content/uploads/2022/06/logo-da-visa-bandeira-cartao.png'
             },
             {
                 name: 'mastercard',
-                img: 'https://logodownload.org/wp-content/uploads/2014/07/mastercard-logo-7.png',
-                color: 'yellow'
+                img: 'https://logodownload.org/wp-content/uploads/2014/07/mastercard-logo-7.png'
             },
             {
                 name: 'amex',
-                img: 'https://www.mobills.com.br/blog/wp-content/uploads/2022/06/logo-da-bandeira-american-express-amex.png',
-                color: 'white'
+                img: 'https://www.mobills.com.br/blog/wp-content/uploads/2022/06/logo-da-bandeira-american-express-amex.png'
             },
             {
                 name: 'discover',
-                img: 'https://marcas-logos.net/wp-content/uploads/2021/06/Discover-logo.png',
-                color: 'purple'
+                img: 'https://marcas-logos.net/wp-content/uploads/2021/06/Discover-logo.png'
             },
             {
                 name: 'maestro',
-                img: 'https://brand.mastercard.com/content/dam/mccom/brandcenter-br/other-marks/othermarks_maestro_vrt_2x.png',
-                color: 'gray'
+                img: 'https://brand.mastercard.com/content/dam/mccom/brandcenter-br/other-marks/othermarks_maestro_vrt_2x.png'
             },
             {
                 name: 'elo',
-                img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Elo_card_association_logo_-_black_text.svg/1200px-Elo_card_association_logo_-_black_text.svg.png',
-                color: 'orange'
+                img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Elo_card_association_logo_-_black_text.svg/1200px-Elo_card_association_logo_-_black_text.svg.png'
             },
         ];
     }

@@ -16,7 +16,7 @@ var CardComponent = /** @class */ (function () {
         this.render = render;
         this.sharedService = sharedService;
         this.bandeiraImageUrl = '';
-        this.bandeiraColor = '';
+        this.bandeiraColor = 'rgb(170, 170, 166)';
         this.valorPreCarregado = '**** **** **** ****';
         this.namePreCarregado = 'José Augusto';
         this.vencimentoPreCarregado = '02/29';
@@ -55,11 +55,9 @@ var CardComponent = /** @class */ (function () {
         var bandeira = this.sharedService.findBandeira(cardNumberValue);
         if (bandeira) {
             this.bandeiraImageUrl = bandeira.img;
-            this.bandeiraColor = bandeira.color;
         }
         else {
             this.bandeiraImageUrl = '';
-            this.bandeiraColor = '';
         }
     };
     CardComponent.prototype.formatarNumero = function (numero) {
