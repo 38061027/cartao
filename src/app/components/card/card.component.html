@@ -91,7 +91,7 @@
     <!-- CÓDIGO DE SEGURANÇA  PARTE DE TRÁS-->
 
     <mat-card-content class="card-back"  [style.background-color]="bandeiraColor">
-      <p class="description-top">t is a long established fact that a reader</p>
+      <p class="description-top">is a long established fact that a reader</p>
       <div class="barra-preta"></div>
 
       <div class="cvc">
@@ -108,7 +108,7 @@
       </div>
 
       <p class="description-bottom">
-        t is a long established fact that a reader will be distracted by the
+        is a long established fact that a reader will be distracted by the
         readable content of a page when looking at its layout.
       </p>
     </mat-card-content>
@@ -122,6 +122,7 @@
 
       <mat-form-field>
         <input
+        #numberCard
           required
           id="number-card"
           matInput
@@ -165,6 +166,7 @@
 
       <mat-form-field>
         <input
+        #cardVal
           type="text"
           matInput
           required
@@ -184,6 +186,8 @@
 
       <mat-form-field>
         <input
+        #cardCvc
+        id="card-cvc"
           type="text"
           required
           matInput

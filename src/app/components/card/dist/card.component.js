@@ -27,7 +27,6 @@ var CardComponent = /** @class */ (function () {
                 [
                     forms_1.Validators.required,
                     forms_1.Validators.minLength(16),
-                    forms_1.Validators.pattern('^[0-9]$'),
                 ],
             ],
             nickName: ['', [forms_1.Validators.required, forms_1.Validators.minLength(15)]],
@@ -37,6 +36,31 @@ var CardComponent = /** @class */ (function () {
     }
     CardComponent.prototype.onSubmit = function () {
         console.log(this.forms.value);
+    };
+    CardComponent.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        this.cardVal.nativeElement.addEventListener('keypress', function (event) {
+            _this.handleKeyPressEvent(event);
+        });
+        this.cardCvc.nativeElement.addEventListener('keypress', function (event) {
+            _this.handleKeyPressEvent(event);
+        });
+        this.cardNumber.nativeElement.addEventListener('keypress', function (event) {
+            _this.handleKeyPressEvent(event);
+        });
+    };
+    CardComponent.prototype.handleKeyPressEvent = function (event) {
+        if (!this.checkChar(event)) {
+            event.preventDefault();
+        }
+    };
+    CardComponent.prototype.checkChar = function (event) {
+        var char = String.fromCharCode(event.keyCode);
+        var pattern = /[0-9]/g;
+        if (char.match(pattern)) {
+            return true;
+        }
+        return false;
     };
     CardComponent.prototype.virar = function () {
         var card = this.element.nativeElement.querySelector('#card');
@@ -57,7 +81,7 @@ var CardComponent = /** @class */ (function () {
             this.bandeiraImageUrl = bandeira.img;
         }
         else {
-            this.bandeiraImageUrl = '';
+            this.bandeiraImageUrl = 'https://marcas-logos.net/wp-content/uploads/2021/06/Discover-logo.png';
         }
     };
     CardComponent.prototype.formatarNumero = function (numero) {
@@ -91,6 +115,15 @@ var CardComponent = /** @class */ (function () {
             cardInput.value = '';
         }
     };
+    __decorate([
+        core_1.ViewChild('numberCard')
+    ], CardComponent.prototype, "cardNumber");
+    __decorate([
+        core_1.ViewChild('cardCvc')
+    ], CardComponent.prototype, "cardCvc");
+    __decorate([
+        core_1.ViewChild('cardVal')
+    ], CardComponent.prototype, "cardVal");
     CardComponent = __decorate([
         core_1.Component({
             selector: 'app-card',

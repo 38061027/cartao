@@ -5,16 +5,23 @@ import {
   ElementRef,
   OnInit,
   Renderer2,
+  ViewChild,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
 })
-export class CardComponent implements OnInit {
+export class CardComponent implements OnInit, AfterViewInit {
+  @ViewChild('numberCard') cardNumber!: ElementRef;
+  @ViewChild('cardCvc') cardCvc!: ElementRef;
+  @ViewChild('cardVal') cardVal!: ElementRef;
+
+
+
   forms: FormGroup;
 
   bandeiraImageUrl: string = '';
@@ -37,7 +44,6 @@ export class CardComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(16),
-          Validators.pattern('^[0-9]$'),
         ],
       ],
       nickName: ['', [Validators.required, Validators.minLength(15)]],
@@ -49,6 +55,47 @@ export class CardComponent implements OnInit {
   onSubmit(): void {
     console.log(this.forms.value);
   }
+
+  ngAfterViewInit(): void {
+
+
+     this.cardVal.nativeElement.addEventListener('keypress', (event: KeyboardEvent)=>{
+       this.handleKeyPressEvent(event)
+     })
+
+
+     this.cardCvc.nativeElement.addEventListener('keypress', (event: KeyboardEvent)=>{
+       this.handleKeyPressEvent(event)
+     })
+
+
+     this.cardNumber.nativeElement.addEventListener('keypress', (event: KeyboardEvent) => {
+       this.handleKeyPressEvent(event);
+
+    });
+  }
+
+  handleKeyPressEvent(event: KeyboardEvent): void {
+    if (!this.checkChar(event)) {
+      event.preventDefault();
+    }
+  }
+
+  checkChar(event: KeyboardEvent): boolean {
+    const char = String.fromCharCode(event.keyCode);
+    const pattern = /[0-9]/g;
+
+    if (char.match(pattern)) {
+      return true
+    }
+
+return false
+
+  }
+
+
+
+
 
   virar(): void {
     const card = this.element.nativeElement.querySelector('#card');
@@ -62,6 +109,7 @@ export class CardComponent implements OnInit {
 
   ngOnInit(): void {
     this.trocarBandeira();
+
   }
 
   trocarBandeira():void {
@@ -75,7 +123,7 @@ export class CardComponent implements OnInit {
       this.bandeiraImageUrl = bandeira.img;
 
     } else {
-      this.bandeiraImageUrl = '';
+      this.bandeiraImageUrl = 'https://marcas-logos.net/wp-content/uploads/2021/06/Discover-logo.png';
 
     }
   }
