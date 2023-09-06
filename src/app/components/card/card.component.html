@@ -120,7 +120,12 @@
     <div class="row first">
       <!-- Input Número do cartão -->
 
+
+
+
       <mat-form-field>
+
+
         <input
         #numberCard
           required
@@ -132,10 +137,10 @@
           maxlength="16"
           (keyup)="trocarBandeira()"
           (keyup)="numberPre($event)"
-          [ngClass]="{ 'preloaded-value': !forms.get('cardNumber')?.value }"
-        />
+          [ngClass]="{ 'preloaded-value': f['cardNumber'].value }"
+        /> 
 
-        <mat-error *ngIf="forms.get('cardNumber')?.hasError('required')">
+        <mat-error *ngIf="f['cardNumber'].hasError('required')">
           Digite o número do cartão!
         </mat-error>
       </mat-form-field>
@@ -152,11 +157,14 @@
           formControlName="nickName"
           maxlength="16"
           (keyup)="namePre($event)"
-          [ngClass]="{ 'preloaded-value': !forms.get('nickName')?.value }"
+          [ngClass]="{ 'preloaded-value': f['nickName'].value }"
         />
 
-        <mat-error *ngIf="forms.get('nickName')?.hasError('required')">
-          Digite seu nome!
+        <mat-error *ngIf="f['nickName'].hasError('required')">
+         Campo obrigatório
+        </mat-error>
+        <mat-error *ngIf="f['nickName'].hasError('minlength')">
+          Tem que ter no mínimo 3 caracteres
         </mat-error>
       </mat-form-field>
     </div>
@@ -174,10 +182,10 @@
           formControlName="vencimento"
           maxlength="4"
           (keyup)="valPre($event)"
-          [ngClass]="{ 'preloaded-value': !forms.get('vencimento')?.value }"
+          [ngClass]="{ 'preloaded-value': f['vencimento'].value }"
         />
 
-        <mat-error *ngIf="forms.get('vencimento')?.hasError('required')">
+        <mat-error *ngIf="f['vencimento'].hasError('required')">
           Digite o vencimento do cartão!
         </mat-error>
       </mat-form-field>
@@ -198,10 +206,10 @@
           formControlName="cvc"
           maxlength="3"
           (keyup)="cvcPre($event)"
-          [ngClass]="{ 'preloaded-value': !forms.get('cvc')?.value }"
+          [ngClass]="{ 'preloaded-value': !f['cvc'].value }"
         />
 
-        <mat-error *ngIf="forms.get('cvc')?.hasError('required')">
+        <mat-error *ngIf="f['cvc'].hasError('required')">
           Digite o código de segurança!
         </mat-error>
       </mat-form-field>

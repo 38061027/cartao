@@ -7,7 +7,8 @@ import {
   Renderer2,
   ViewChild,
 } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {  FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 
 @Component({
@@ -16,9 +17,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit, AfterViewInit {
-  @ViewChild('numberCard') cardNumber!: ElementRef;
-  @ViewChild('cardCvc') cardCvc!: ElementRef;
-  @ViewChild('cardVal') cardVal!: ElementRef;
+   @ViewChild('numberCard') cardNumber!: ElementRef;
+   @ViewChild('cardCvc') cardCvc!: ElementRef;
+   @ViewChild('cardVal') cardVal!: ElementRef;
+
+
 
 
 
@@ -46,11 +49,17 @@ export class CardComponent implements OnInit, AfterViewInit {
           Validators.minLength(16),
         ],
       ],
-      nickName: ['', [Validators.required, Validators.minLength(15)]],
+      nickName: ['', [Validators.required, Validators.minLength(3)]],
       vencimento: ['', [Validators.required, Validators.minLength(4)]],
       cvc: ['', [Validators.required, Validators.minLength(3)]],
     });
   }
+
+
+  get f(){
+    return this.forms.controls
+  }
+
 
   onSubmit(): void {
     console.log(this.forms.value);

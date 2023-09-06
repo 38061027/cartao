@@ -7,10 +7,14 @@ import { CardComponent } from './components/card/card.component';
 import { MaterialModule } from './material/material.module';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    CardComponent
+    CardComponent,
+
+
   ],
   imports: [
     BrowserModule,

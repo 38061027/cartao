@@ -29,11 +29,18 @@ var CardComponent = /** @class */ (function () {
                     forms_1.Validators.minLength(16),
                 ],
             ],
-            nickName: ['', [forms_1.Validators.required, forms_1.Validators.minLength(15)]],
+            nickName: ['', [forms_1.Validators.required, forms_1.Validators.minLength(3)]],
             vencimento: ['', [forms_1.Validators.required, forms_1.Validators.minLength(4)]],
             cvc: ['', [forms_1.Validators.required, forms_1.Validators.minLength(3)]]
         });
     }
+    Object.defineProperty(CardComponent.prototype, "f", {
+        get: function () {
+            return this.forms.controls;
+        },
+        enumerable: false,
+        configurable: true
+    });
     CardComponent.prototype.onSubmit = function () {
         console.log(this.forms.value);
     };
