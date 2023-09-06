@@ -1,0 +1,20 @@
+<mat-form-field [formGroup]="formGroup">
+  <input
+    id="name-card"
+    type="text"
+    matInput
+    required
+    placeholder="Nome"
+    formControlName="nickName"
+    maxlength="16"
+    (keyup)="namePre($event)"
+    [ngClass]="{ 'preloaded-value': formControls['nickName'].value }"
+  />
+
+  <mat-error *ngIf="formControls['nickName'].hasError('required')">
+   Campo obrigatório
+  </mat-error>
+  <mat-error *ngIf="formControls['nickName'].hasError('minlength')">
+    Tem que ter no mínimo 3 caracteres
+  </mat-error>
+</mat-form-field>

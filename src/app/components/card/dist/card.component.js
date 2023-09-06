@@ -52,9 +52,6 @@ var CardComponent = /** @class */ (function () {
         this.cardCvc.nativeElement.addEventListener('keypress', function (event) {
             _this.handleKeyPressEvent(event);
         });
-        this.cardNumber.nativeElement.addEventListener('keypress', function (event) {
-            _this.handleKeyPressEvent(event);
-        });
     };
     CardComponent.prototype.handleKeyPressEvent = function (event) {
         if (!this.checkChar(event)) {
@@ -98,12 +95,6 @@ var CardComponent = /** @class */ (function () {
             .match(/.{1,4}/g);
         return numeroFormatado ? numeroFormatado.join(' ') : '';
     };
-    CardComponent.prototype.numberPre = function (event) {
-        var cardInput = event.target;
-        if (cardInput.value === this.valorPreCarregado) {
-            cardInput.value = '';
-        }
-    };
     CardComponent.prototype.namePre = function (event) {
         var cardInput = event.target;
         if (cardInput.value === this.namePreCarregado) {
@@ -122,9 +113,6 @@ var CardComponent = /** @class */ (function () {
             cardInput.value = '';
         }
     };
-    __decorate([
-        core_1.ViewChild('numberCard')
-    ], CardComponent.prototype, "cardNumber");
     __decorate([
         core_1.ViewChild('cardCvc')
     ], CardComponent.prototype, "cardCvc");

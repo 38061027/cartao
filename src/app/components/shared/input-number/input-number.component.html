@@ -1,0 +1,20 @@
+<mat-form-field [formGroup]="formGroup">
+
+
+  <input
+  #numberCard
+    required
+    id="number-card"
+    matInput
+    type="text"
+    placeholder="Número do cartão"
+    formControlName="cardNumber"
+    maxlength="16"
+    (keyup)="trocarBandeira()"
+    [ngClass]="{ 'preloaded-value': formControls['cardNumber'].value }"
+  />
+
+  <mat-error *ngIf="formControls['cardNumber'].hasError('required')">
+    Digite o número do cartão!
+  </mat-error>
+</mat-form-field>

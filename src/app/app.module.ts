@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardComponent } from './components/card/card.component';
 import { MaterialModule } from './material/material.module';
+import { InputNumberComponent } from './components/shared/input-number/input-number.component';
+import { InputNameComponent } from './components/shared/input-name/input-name.component';
 
 
 
@@ -13,6 +15,8 @@ import { MaterialModule } from './material/material.module';
   declarations: [
     AppComponent,
     CardComponent,
+    InputNumberComponent,
+    InputNameComponent,
 
 
   ],

@@ -17,7 +17,7 @@ import {  FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit, AfterViewInit {
-   @ViewChild('numberCard') cardNumber!: ElementRef;
+
    @ViewChild('cardCvc') cardCvc!: ElementRef;
    @ViewChild('cardVal') cardVal!: ElementRef;
 
@@ -78,10 +78,6 @@ export class CardComponent implements OnInit, AfterViewInit {
      })
 
 
-     this.cardNumber.nativeElement.addEventListener('keypress', (event: KeyboardEvent) => {
-       this.handleKeyPressEvent(event);
-
-    });
   }
 
   handleKeyPressEvent(event: KeyboardEvent): void {
@@ -145,12 +141,6 @@ return false
     return numeroFormatado ? numeroFormatado.join(' ') : '';
   }
 
-  numberPre(event: KeyboardEvent): void {
-    const cardInput = event.target as HTMLInputElement;
-    if (cardInput.value === this.valorPreCarregado) {
-      cardInput.value = '';
-    }
-  }
 
   namePre(event: KeyboardEvent): void {
     const cardInput = event.target as HTMLInputElement;

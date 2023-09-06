@@ -121,52 +121,25 @@
       <!-- Input Número do cartão -->
 
 
+<app-input-number
+[formGroup]="forms"
+[trocarBandeira]="trocarBandeira()"
+[formControls]="f"
+>
 
+</app-input-number>
 
-      <mat-form-field>
-
-
-        <input
-        #numberCard
-          required
-          id="number-card"
-          matInput
-          type="text"
-          placeholder="Número do cartão"
-          formControlName="cardNumber"
-          maxlength="16"
-          (keyup)="trocarBandeira()"
-          (keyup)="numberPre($event)"
-          [ngClass]="{ 'preloaded-value': f['cardNumber'].value }"
-        /> 
-
-        <mat-error *ngIf="f['cardNumber'].hasError('required')">
-          Digite o número do cartão!
-        </mat-error>
-      </mat-form-field>
 
       <!-- Input Nome Do usuário -->
 
-      <mat-form-field>
-        <input
-          id="name-card"
-          type="text"
-          matInput
-          required
-          placeholder="Nome"
-          formControlName="nickName"
-          maxlength="16"
-          (keyup)="namePre($event)"
-          [ngClass]="{ 'preloaded-value': f['nickName'].value }"
-        />
+<app-input-name
+[formGroup]="forms"
+[formControls]="f"
+>
 
-        <mat-error *ngIf="f['nickName'].hasError('required')">
-         Campo obrigatório
-        </mat-error>
-        <mat-error *ngIf="f['nickName'].hasError('minlength')">
-          Tem que ter no mínimo 3 caracteres
-        </mat-error>
-      </mat-form-field>
+</app-input-name>
+
+
     </div>
 
     <div class="row second">
