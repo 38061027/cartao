@@ -145,47 +145,22 @@
     <div class="row second">
       <!--  Input Vencimento -->
 
-      <mat-form-field>
-        <input
-        #cardVal
-          type="text"
-          matInput
-          required
-          placeholder="Vencimento"
-          formControlName="vencimento"
-          maxlength="4"
-          (keyup)="valPre($event)"
-          [ngClass]="{ 'preloaded-value': f['vencimento'].value }"
-        />
+<app-input-maturity
+[formGroup]="forms"
+[formControls]="f"
 
-        <mat-error *ngIf="f['vencimento'].hasError('required')">
-          Digite o vencimento do cartão!
-        </mat-error>
-      </mat-form-field>
+>
+</app-input-maturity>
+
+
 
       <!-- Input CÓDIGO DE SEGURANÇA -->
+      <app-input-cvc
+      [formGroup]="forms"
+      [formControls]="f"
+      >
 
-      <mat-form-field>
-        <input
-        #cardCvc
-        id="card-cvc"
-          type="text"
-          required
-          matInput
-          placeholder="CVC"
-          id="cvc"
-          (focus)="virar()"
-          (blur)="desfoque()"
-          formControlName="cvc"
-          maxlength="3"
-          (keyup)="cvcPre($event)"
-          [ngClass]="{ 'preloaded-value': !f['cvc'].value }"
-        />
-
-        <mat-error *ngIf="f['cvc'].hasError('required')">
-          Digite o código de segurança!
-        </mat-error>
-      </mat-form-field>
+      </app-input-cvc>
     </div>
 
     <button

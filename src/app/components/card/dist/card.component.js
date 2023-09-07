@@ -44,15 +44,6 @@ var CardComponent = /** @class */ (function () {
     CardComponent.prototype.onSubmit = function () {
         console.log(this.forms.value);
     };
-    CardComponent.prototype.ngAfterViewInit = function () {
-        var _this = this;
-        this.cardVal.nativeElement.addEventListener('keypress', function (event) {
-            _this.handleKeyPressEvent(event);
-        });
-        this.cardCvc.nativeElement.addEventListener('keypress', function (event) {
-            _this.handleKeyPressEvent(event);
-        });
-    };
     CardComponent.prototype.handleKeyPressEvent = function (event) {
         if (!this.checkChar(event)) {
             event.preventDefault();
@@ -65,14 +56,6 @@ var CardComponent = /** @class */ (function () {
             return true;
         }
         return false;
-    };
-    CardComponent.prototype.virar = function () {
-        var card = this.element.nativeElement.querySelector('#card');
-        this.render.setStyle(card, 'transform', 'rotateY(180deg)');
-    };
-    CardComponent.prototype.desfoque = function () {
-        var card = this.element.nativeElement.querySelector('#card');
-        this.render.setStyle(card, 'transform', 'rotateY(0deg)');
     };
     CardComponent.prototype.ngOnInit = function () {
         this.trocarBandeira();
@@ -113,12 +96,6 @@ var CardComponent = /** @class */ (function () {
             cardInput.value = '';
         }
     };
-    __decorate([
-        core_1.ViewChild('cardCvc')
-    ], CardComponent.prototype, "cardCvc");
-    __decorate([
-        core_1.ViewChild('cardVal')
-    ], CardComponent.prototype, "cardVal");
     CardComponent = __decorate([
         core_1.Component({
             selector: 'app-card',

@@ -34,25 +34,7 @@ describe('CardComponent', () => {
 
   })
 
-  it('Deve virar o elemento corretamente', () => {
-
-    component.virar();
-
-
-    const card = fixture.debugElement.query(By.css('#card')).nativeElement;
-    const transformValue = card.style.transform;
-    expect(transformValue).toBe('rotateY(180deg)');
-  });
-
-  it('Deve desfocar o elemento corretamente', () => {
-
-    component.desfoque();
-
-
-    const card = fixture.debugElement.query(By.css('#card')).nativeElement;
-    const transformValue = card.style.transform;
-    expect(transformValue).toBe('rotateY(0deg)');
-  });
+  
 
 
 

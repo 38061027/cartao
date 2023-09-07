@@ -16,11 +16,7 @@ import {  FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
 })
-export class CardComponent implements OnInit, AfterViewInit {
-
-   @ViewChild('cardCvc') cardCvc!: ElementRef;
-   @ViewChild('cardVal') cardVal!: ElementRef;
-
+export class CardComponent implements OnInit {
 
 
 
@@ -65,20 +61,7 @@ export class CardComponent implements OnInit, AfterViewInit {
     console.log(this.forms.value);
   }
 
-  ngAfterViewInit(): void {
 
-
-     this.cardVal.nativeElement.addEventListener('keypress', (event: KeyboardEvent)=>{
-       this.handleKeyPressEvent(event)
-     })
-
-
-     this.cardCvc.nativeElement.addEventListener('keypress', (event: KeyboardEvent)=>{
-       this.handleKeyPressEvent(event)
-     })
-
-
-  }
 
   handleKeyPressEvent(event: KeyboardEvent): void {
     if (!this.checkChar(event)) {
@@ -102,15 +85,7 @@ return false
 
 
 
-  virar(): void {
-    const card = this.element.nativeElement.querySelector('#card');
-    this.render.setStyle(card, 'transform', 'rotateY(180deg)');
-  }
 
-  desfoque(): void {
-    const card = this.element.nativeElement.querySelector('#card');
-    this.render.setStyle(card, 'transform', 'rotateY(0deg)');
-  }
 
   ngOnInit(): void {
     this.trocarBandeira();

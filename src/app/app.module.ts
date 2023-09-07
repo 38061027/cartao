@@ -7,6 +7,8 @@ import { CardComponent } from './components/card/card.component';
 import { MaterialModule } from './material/material.module';
 import { InputNumberComponent } from './components/shared/input-number/input-number.component';
 import { InputNameComponent } from './components/shared/input-name/input-name.component';
+import { InputMaturityComponent } from './components/shared/input-maturity/input-maturity.component';
+import { InputCvcComponent } from './components/shared/input-cvc/input-cvc.component';
 
 
 
@@ -17,6 +19,8 @@ import { InputNameComponent } from './components/shared/input-name/input-name.co
     CardComponent,
     InputNumberComponent,
     InputNameComponent,
+    InputMaturityComponent,
+    InputCvcComponent,
 
 
   ],

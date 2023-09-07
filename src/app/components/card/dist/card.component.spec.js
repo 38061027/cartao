@@ -39,7 +39,6 @@ exports.__esModule = true;
 var testing_1 = require("@angular/core/testing");
 var card_component_1 = require("./card.component");
 var material_module_1 = require("src/app/material/material.module");
-var platform_browser_1 = require("@angular/platform-browser");
 describe('CardComponent', function () {
     var component;
     var fixture;
@@ -66,17 +65,5 @@ describe('CardComponent', function () {
     it('Deve está desabilitado o botão quando o formulário for inválido', function () {
         var button = fixture.debugElement;
         expect(button.nativeElement.querySelector('.submit-btn').disabled).toBeTrue();
-    });
-    it('Deve virar o elemento corretamente', function () {
-        component.virar();
-        var card = fixture.debugElement.query(platform_browser_1.By.css('#card')).nativeElement;
-        var transformValue = card.style.transform;
-        expect(transformValue).toBe('rotateY(180deg)');
-    });
-    it('Deve desfocar o elemento corretamente', function () {
-        component.desfoque();
-        var card = fixture.debugElement.query(platform_browser_1.By.css('#card')).nativeElement;
-        var transformValue = card.style.transform;
-        expect(transformValue).toBe('rotateY(0deg)');
     });
 });
