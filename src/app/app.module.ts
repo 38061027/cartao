@@ -9,6 +9,7 @@ import { InputNumberComponent } from './components/shared/input-number/input-num
 import { InputNameComponent } from './components/shared/input-name/input-name.component';
 import { InputMaturityComponent } from './components/shared/input-maturity/input-maturity.component';
 import { InputCvcComponent } from './components/shared/input-cvc/input-cvc.component';
+import { DialogComponent } from './components/shared/dialog/dialog.component';
 
 
 
@@ -21,6 +22,7 @@ import { InputCvcComponent } from './components/shared/input-cvc/input-cvc.compo
     InputNameComponent,
     InputMaturityComponent,
     InputCvcComponent,
+    DialogComponent
 
 
   ],

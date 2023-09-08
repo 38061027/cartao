@@ -1,6 +1,4 @@
 <div class="body">
-
-
   <mat-card id="card">
     <mat-card-content
       class="card-front"
@@ -90,7 +88,10 @@
 
     <!-- CÓDIGO DE SEGURANÇA  PARTE DE TRÁS-->
 
-    <mat-card-content class="card-back"  [style.background-color]="bandeiraColor">
+    <mat-card-content
+      class="card-back"
+      [style.background-color]="bandeiraColor"
+    >
       <p class="description-top">is a long established fact that a reader</p>
       <div class="barra-preta"></div>
 
@@ -120,50 +121,30 @@
     <div class="row first">
       <!-- Input Número do cartão -->
 
-
-<app-input-number
-[formGroup]="forms"
-[trocarBandeira]="trocarBandeira()"
-[formControls]="f"
->
-
-</app-input-number>
-
+      <app-input-number
+        [formGroup]="forms"
+        [trocarBandeira]="trocarBandeira()"
+        [formControls]="f"
+      >
+      </app-input-number>
 
       <!-- Input Nome Do usuário -->
 
-<app-input-name
-[formGroup]="forms"
-[formControls]="f"
->
-
-</app-input-name>
-
-
+      <app-input-name [formGroup]="forms" [formControls]="f"> </app-input-name>
     </div>
 
     <div class="row second">
       <!--  Input Vencimento -->
 
-<app-input-maturity
-[formGroup]="forms"
-[formControls]="f"
-
->
-</app-input-maturity>
-
-
+      <app-input-maturity [formGroup]="forms" [formControls]="f">
+      </app-input-maturity>
 
       <!-- Input CÓDIGO DE SEGURANÇA -->
-      <app-input-cvc
-      [formGroup]="forms"
-      [formControls]="f"
-      >
-
-      </app-input-cvc>
+      <app-input-cvc [formGroup]="forms" [formControls]="f"> </app-input-cvc>
     </div>
 
     <button
+    (click)="openDialog()"
       class="submit-btn"
       mat-raised-button
       color="primary"

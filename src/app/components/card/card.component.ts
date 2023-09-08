@@ -8,6 +8,8 @@ import {
   ViewChild,
 } from '@angular/core';
 import {  FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../shared/dialog/dialog.component';
 
 
 
@@ -18,7 +20,8 @@ import {  FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class CardComponent implements OnInit {
 
-
+  animal!: string;
+  name!: string;
 
 
   forms: FormGroup;
@@ -35,7 +38,8 @@ export class CardComponent implements OnInit {
     private fb: FormBuilder,
     private element: ElementRef,
     private render: Renderer2,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    public dialog: MatDialog
   ) {
     this.forms = this.fb.group({
       cardNumber: [
@@ -56,6 +60,12 @@ export class CardComponent implements OnInit {
     return this.forms.controls
   }
 
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponent);
+
+
+  }
 
   onSubmit(): void {
     console.log(this.forms.value);
@@ -83,7 +93,7 @@ return false
 
 
 
-
+ 
 
 
 
