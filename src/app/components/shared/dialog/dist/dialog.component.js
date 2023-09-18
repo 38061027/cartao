@@ -13,19 +13,26 @@ exports.DialogComponent = void 0;
 var core_1 = require("@angular/core");
 var dialog_1 = require("@angular/material/dialog");
 var DialogComponent = /** @class */ (function () {
-    function DialogComponent(dialogRef, data) {
+    function DialogComponent(eventService, dialogRef, data) {
+        this.eventService = eventService;
         this.dialogRef = dialogRef;
         this.data = data;
         this.sucesso = 'Sucesso!';
         this.descricao = 'Suas informações foram enviadas com sucesso.';
     }
+    DialogComponent.prototype.onOkClick = function (event) {
+        this.eventService.resetForm();
+    };
+    __decorate([
+        core_1.HostListener('click', ['$event'])
+    ], DialogComponent.prototype, "onOkClick");
     DialogComponent = __decorate([
         core_1.Component({
             selector: 'app-dialog',
             templateUrl: './dialog.component.html',
             styleUrls: ['./dialog.component.scss']
         }),
-        __param(1, core_1.Inject(dialog_1.MAT_DIALOG_DATA))
+        __param(2, core_1.Inject(dialog_1.MAT_DIALOG_DATA))
     ], DialogComponent);
     return DialogComponent;
 }());

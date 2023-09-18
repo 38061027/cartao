@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,9 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './input-name.component.html',
   styleUrls: ['./input-name.component.scss']
 })
-export class InputNameComponent {
+export class InputNameComponent implements AfterViewInit {
+  @ViewChild('cardName') cardName!: ElementRef;
+
 
   @Input() formGroup!: FormGroup
   @Input() formControls: any
@@ -26,7 +28,7 @@ export class InputNameComponent {
 
   checkChar(event: KeyboardEvent): boolean {
     const char = String.fromCharCode(event.keyCode);
-    const pattern = /[0-9]/g;
+    const pattern = /[a-z]/gi
 
     if (char.match(pattern)) {
       return true
@@ -38,8 +40,12 @@ return false
 
 
 
+  ngAfterViewInit(): void {
+    this.cardName.nativeElement.addEventListener('keypress', (event: KeyboardEvent)=>{
+      this.handleKeyPressEvent(event)
+    })
 
-
+  }
 
 
 }

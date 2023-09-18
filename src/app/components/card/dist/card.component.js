@@ -11,7 +11,8 @@ var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var dialog_component_1 = require("../shared/dialog/dialog.component");
 var CardComponent = /** @class */ (function () {
-    function CardComponent(fb, element, render, sharedService, dialog) {
+    function CardComponent(eventService, fb, element, render, sharedService, dialog) {
+        this.eventService = eventService;
         this.fb = fb;
         this.element = element;
         this.render = render;
@@ -43,6 +44,9 @@ var CardComponent = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
+    CardComponent.prototype.onReset = function () {
+        this.forms.reset();
+    };
     CardComponent.prototype.openDialog = function () {
         var dialogRef = this.dialog.open(dialog_component_1.DialogComponent);
     };
@@ -63,7 +67,11 @@ var CardComponent = /** @class */ (function () {
         return false;
     };
     CardComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.trocarBandeira();
+        this.eventService.resetEvent.subscribe(function () {
+            _this.onReset();
+        });
     };
     CardComponent.prototype.trocarBandeira = function () {
         var cardNumberInput = this.element.nativeElement.querySelector('#number-card');

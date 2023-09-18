@@ -18,12 +18,21 @@ var InputNameComponent = /** @class */ (function () {
     };
     InputNameComponent.prototype.checkChar = function (event) {
         var char = String.fromCharCode(event.keyCode);
-        var pattern = /[0-9]/g;
+        var pattern = /[a-z]/gi;
         if (char.match(pattern)) {
             return true;
         }
         return false;
     };
+    InputNameComponent.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        this.cardName.nativeElement.addEventListener('keypress', function (event) {
+            _this.handleKeyPressEvent(event);
+        });
+    };
+    __decorate([
+        core_1.ViewChild('cardName')
+    ], InputNameComponent.prototype, "cardName");
     __decorate([
         core_1.Input()
     ], InputNameComponent.prototype, "formGroup");

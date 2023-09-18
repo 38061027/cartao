@@ -10,6 +10,8 @@ import {
 import {  FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../shared/dialog/dialog.component';
+import { EventService } from 'src/app/service/event.service';
+
 
 
 
@@ -35,6 +37,7 @@ export class CardComponent implements OnInit {
   cvcPreCarregado: string = '123';
 
   constructor(
+    private eventService: EventService,
     private fb: FormBuilder,
     private element: ElementRef,
     private render: Renderer2,
@@ -53,6 +56,8 @@ export class CardComponent implements OnInit {
       vencimento: ['', [Validators.required, Validators.minLength(4)]],
       cvc: ['', [Validators.required, Validators.minLength(3)]],
     });
+
+
   }
 
 
@@ -60,6 +65,11 @@ export class CardComponent implements OnInit {
     return this.forms.controls
   }
 
+
+
+  onReset(){
+    this.forms.reset()
+  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent);
@@ -93,13 +103,12 @@ return false
 
 
 
- 
-
-
 
   ngOnInit(): void {
     this.trocarBandeira();
-
+    this.eventService.resetEvent.subscribe(()=>{
+      this.onReset()
+    })
   }
 
   trocarBandeira():void {
