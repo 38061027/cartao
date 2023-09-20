@@ -22,9 +22,6 @@ import { EventService } from 'src/app/service/event.service';
 })
 export class CardComponent implements OnInit {
 
-  animal!: string;
-  name!: string;
-
 
   forms: FormGroup;
 
@@ -32,9 +29,18 @@ export class CardComponent implements OnInit {
   bandeiraColor: string = 'rgb(170, 170, 166)';
 
   valorPreCarregado: string = '**** **** **** ****';
-  namePreCarregado: string = 'José Augusto';
-  vencimentoPreCarregado: string = '02/29';
+  namePreCarregado: string = 'Full Name';
+  vencimentoPreCarregado: string = 'MM/YY';
   cvcPreCarregado: string = '123';
+
+
+  placeholders = {
+    cardNumber: "5323 6252 9301 2711",
+    name: 'Jose A G',
+    expires: '02/33',
+    cvc: '438'
+  }
+
 
   constructor(
     private eventService: EventService,
@@ -56,6 +62,8 @@ export class CardComponent implements OnInit {
       vencimento: ['', [Validators.required, Validators.minLength(4)]],
       cvc: ['', [Validators.required, Validators.minLength(3)]],
     });
+
+
 
 
   }

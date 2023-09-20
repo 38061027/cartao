@@ -42,6 +42,9 @@ var InputMaturityComponent = /** @class */ (function () {
     __decorate([
         core_1.Input()
     ], InputMaturityComponent.prototype, "valPre");
+    __decorate([
+        core_1.Input()
+    ], InputMaturityComponent.prototype, "placeholder");
     InputMaturityComponent = __decorate([
         core_1.Component({
             selector: 'app-input-maturity',

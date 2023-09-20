@@ -13,6 +13,7 @@ export class InputMaturityComponent implements AfterViewInit{
   @Input() formGroup!: FormGroup
   @Input() formControls: any
   @Input() valPre: any
+  @Input() placeholder: any
 
 
   handleKeyPressEvent(event: KeyboardEvent): void {

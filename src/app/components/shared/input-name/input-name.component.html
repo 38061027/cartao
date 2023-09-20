@@ -1,21 +1,26 @@
-<mat-form-field [formGroup]="formGroup">
-  <input
-  #cardName
-    id="name-card"
-    type="text"
-    matInput
-    required
-    placeholder="Nome impresso"
-    formControlName="nickName"
-    maxlength="16"
-    (keyup)="namePre($event)"
-    [ngClass]="{ 'preloaded-value': formControls['nickName'].value }"
-  />
+<div class="card-div">
+  <label for="">Full Name</label>
 
-  <mat-error *ngIf="formControls['nickName'].hasError('required')">
-   Campo obrigatório
-  </mat-error>
-  <mat-error *ngIf="formControls['nickName'].hasError('minlength')">
-    Tem que ter no mínimo 3 caracteres
-  </mat-error>
-</mat-form-field>
+
+  <mat-form-field [formGroup]="formGroup">
+    <input
+    #cardName
+      id="name-card"
+      type="text"
+      matInput
+      required
+      [placeholder]="placeholder.name"
+      formControlName="nickName"
+      maxlength="16"
+      (keyup)="namePre($event)"
+      [ngClass]="{ 'preloaded-value': formControls['nickName'].value }"
+    />
+
+    <mat-error *ngIf="formControls['nickName'].hasError('required')">
+     Campo obrigatório
+    </mat-error>
+    <mat-error *ngIf="formControls['nickName'].hasError('minlength')">
+      Tem que ter no mínimo 3 caracteres
+    </mat-error>
+  </mat-form-field>
+</div>

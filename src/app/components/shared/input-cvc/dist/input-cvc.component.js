@@ -56,6 +56,9 @@ var InputCvcComponent = /** @class */ (function () {
     __decorate([
         core_1.Input()
     ], InputCvcComponent.prototype, "cvcPre");
+    __decorate([
+        core_1.Input()
+    ], InputCvcComponent.prototype, "placeholder");
     InputCvcComponent = __decorate([
         core_1.Component({
             selector: 'app-input-cvc',

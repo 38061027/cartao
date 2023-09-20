@@ -1,21 +1,28 @@
-<mat-form-field [formGroup]="formGroup">
-  <input
-  #cardCvc
-  id="card-cvc"
-    type="text"
-    required
-    matInput
-    placeholder="CVC"
-    id="cvc"
-    (focus)="virar()"
-    (blur)="desfoque()"
-    formControlName="cvc"
-    maxlength="3"
-    (keyup)="cvcPre($event)"
-    [ngClass]="{ 'preloaded-value': formControls['cvc'].value }"
-  />
 
-  <mat-error *ngIf="formControls['cvc'].hasError('required')">
-    Digite o código de segurança!
-  </mat-error>
-</mat-form-field>
+<div class="card-div">
+
+
+  <label for="">CVC</label>
+
+  <mat-form-field [formGroup]="formGroup">
+    <input
+    #cardCvc
+    id="card-cvc"
+      type="text"
+      required
+      matInput
+      [placeholder]="placeholder.cvc"
+      id="cvc"
+      (focus)="virar()"
+      (blur)="desfoque()"
+      formControlName="cvc"
+      maxlength="3"
+      (keyup)="cvcPre($event)"
+      [ngClass]="{ 'preloaded-value': formControls['cvc'].value }"
+    />
+
+    <mat-error *ngIf="formControls['cvc'].hasError('required')">
+      Digite o código de segurança!
+    </mat-error>
+  </mat-form-field>
+</div>

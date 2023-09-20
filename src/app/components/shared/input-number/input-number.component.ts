@@ -12,6 +12,7 @@ export class InputNumberComponent implements AfterViewInit{
   @Input() formGroup!: FormGroup
   @Input() trocarBandeira:any
   @Input() formControls: any
+  @Input() placeholder: any
 
 
 

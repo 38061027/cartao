@@ -21,9 +21,15 @@ var CardComponent = /** @class */ (function () {
         this.bandeiraImageUrl = '';
         this.bandeiraColor = 'rgb(170, 170, 166)';
         this.valorPreCarregado = '**** **** **** ****';
-        this.namePreCarregado = 'José Augusto';
-        this.vencimentoPreCarregado = '02/29';
+        this.namePreCarregado = 'Full Name';
+        this.vencimentoPreCarregado = 'MM/YY';
         this.cvcPreCarregado = '123';
+        this.placeholders = {
+            cardNumber: "5323 6252 9301 2711",
+            name: 'Jose A G',
+            expires: '02/33',
+            cvc: '438'
+        };
         this.forms = this.fb.group({
             cardNumber: [
                 '',

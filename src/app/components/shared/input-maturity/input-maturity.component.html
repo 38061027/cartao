@@ -1,17 +1,22 @@
-<mat-form-field [formGroup]="formGroup">
-  <input
-  #cardVal
-    type="text"
-    matInput
-    required
-    placeholder="Vencimento"
-    formControlName="vencimento"
-    maxlength="4"
-    (keyup)="valPre($event)"
-    [ngClass]="{ 'preloaded-value': formControls['vencimento'].value }"
-  />
+<div class="card-div">
 
-  <mat-error *ngIf="formControls['vencimento'].hasError('required')">
-    Digite o vencimento do cartão!
-  </mat-error>
-</mat-form-field>
+  <label for="">Expire</label>
+
+  <mat-form-field [formGroup]="formGroup">
+    <input
+    #cardVal
+      type="text"
+      matInput
+      required
+      [placeholder]="placeholder.expires"
+      formControlName="vencimento"
+      maxlength="4"
+      (keyup)="valPre($event)"
+      [ngClass]="{ 'preloaded-value': formControls['vencimento'].value }"
+    />
+
+    <mat-error *ngIf="formControls['vencimento'].hasError('required')">
+      Digite o vencimento do cartão!
+    </mat-error>
+  </mat-form-field>
+</div>

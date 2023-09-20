@@ -17,11 +17,11 @@ var SharedService = /** @class */ (function () {
             },
             {
                 name: 'mastercard',
-                img: 'https://logodownload.org/wp-content/uploads/2014/07/mastercard-logo-7.png'
+                img: 'https://logodownload.org/wp-content/uploads/2014/07/mastercard-logo.png'
             },
             {
                 name: 'amex',
-                img: 'https://www.mobills.com.br/blog/wp-content/uploads/2022/06/logo-da-bandeira-american-express-amex.png'
+                img: 'https://assets.stickpng.com/images/620670b9d7b91b0004122617.png'
             },
             {
                 name: 'discover',
@@ -29,7 +29,7 @@ var SharedService = /** @class */ (function () {
             },
             {
                 name: 'maestro',
-                img: 'https://brand.mastercard.com/content/dam/mccom/brandcenter-br/other-marks/othermarks_maestro_vrt_2x.png'
+                img: 'https://logodownload.org/wp-content/uploads/2018/05/maestro-logo-8.png'
             },
             {
                 name: 'elo',

@@ -22,12 +22,12 @@ export class SharedService {
     },
     {
       name: 'mastercard',
-      img: 'https://logodownload.org/wp-content/uploads/2014/07/mastercard-logo-7.png',
+      img: 'https://logodownload.org/wp-content/uploads/2014/07/mastercard-logo.png',
 
     },
     {
       name: 'amex',
-      img: 'https://www.mobills.com.br/blog/wp-content/uploads/2022/06/logo-da-bandeira-american-express-amex.png',
+      img: 'https://assets.stickpng.com/images/620670b9d7b91b0004122617.png',
 
     },
     {
@@ -37,14 +37,15 @@ export class SharedService {
     },
     {
       name: 'maestro',
-      img: 'https://brand.mastercard.com/content/dam/mccom/brandcenter-br/other-marks/othermarks_maestro_vrt_2x.png',
+      img: 'https://logodownload.org/wp-content/uploads/2018/05/maestro-logo-8.png',
 
     },
     {
       name: 'elo',
       img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Elo_card_association_logo_-_black_text.svg/1200px-Elo_card_association_logo_-_black_text.svg.png',
-    
+
     },
+    
   ];
 
   findBandeira(cardNumberValue: string): any {
@@ -56,7 +57,10 @@ export class SharedService {
         cardNumberValue.substring(0, 2) === '34'
       ) {
         return true;
-      } else if (
+      }
+
+
+      else if (
         bandeira.name === 'visa' &&
         cardNumberValue.substring(0, 1) === '4'
       ) {
@@ -79,8 +83,8 @@ export class SharedService {
       } else if (
         bandeira.name === 'discover' &&
         cardNumberValue.substring(0, 1) === '6'
-      ) {
-        return true;
+      ){
+        return true
       }
 
       return bandeira.name === firstDigit;

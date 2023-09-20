@@ -13,6 +13,7 @@ export class InputCvcComponent implements AfterViewInit{
   @Input() formGroup!: FormGroup
   @Input() formControls: any
   @Input() cvcPre: any
+  @Input() placeholder: any
 
 constructor(
   private render: Renderer2,

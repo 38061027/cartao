@@ -6,7 +6,7 @@
   align-items: center;
   flex-direction: column;
   gap: 50px;
-  background-color: #626e6a;
+  background-color: #2c2a2a;
 }
 
 .content-form {
@@ -103,7 +103,6 @@
 }
 
 a {
-  color: #333;
   font-weight: bold;
   font-size: 0.8rem;
 }
@@ -115,7 +114,6 @@ a {
 }
 
 .valid i {
-  color: #333;
   font-size: xx-small;
   margin-right: 0.3rem;
   font-weight: bold;
@@ -163,11 +161,13 @@ a {
 }
 
 #card .card-front {
-  background-color: #68a4d4;
+  background: #030303;
+  background: linear-gradient(333deg, black 0%, #6f1fca 100%);
 }
 
 #card .card-back {
-  background-color: #5a9ddb;
+  background: #030303;
+  background: linear-gradient(333deg, black 0%, #6f1fca 100%);
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
@@ -192,6 +192,11 @@ a {
 #card .card-back .cvc p {
   position: absolute;
   right: 2rem;
+  color: black;
+}
+
+#card .card-back .cvc i {
+  color: black;
 }
 
 #card .card-back .description-bottom {

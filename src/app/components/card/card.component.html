@@ -123,6 +123,7 @@
       <!-- Input Número do cartão -->
 
       <app-input-number
+        [placeholder]="placeholders"
         [formGroup]="forms"
         [trocarBandeira]="trocarBandeira()"
         [formControls]="f"
@@ -131,17 +132,17 @@
 
       <!-- Input Nome Do usuário -->
 
-      <app-input-name [formGroup]="forms" [formControls]="f"> </app-input-name>
+      <app-input-name  [placeholder]="placeholders" [formGroup]="forms" [formControls]="f"> </app-input-name>
     </div>
 
     <div class="row second">
       <!--  Input Vencimento -->
 
-      <app-input-maturity [formGroup]="forms" [formControls]="f">
+      <app-input-maturity  [placeholder]="placeholders" [formGroup]="forms" [formControls]="f">
       </app-input-maturity>
 
       <!-- Input CÓDIGO DE SEGURANÇA -->
-      <app-input-cvc [formGroup]="forms" [formControls]="f"> </app-input-cvc>
+      <app-input-cvc  [placeholder]="placeholders" [formGroup]="forms" [formControls]="f"> </app-input-cvc>
     </div>
 
     <button

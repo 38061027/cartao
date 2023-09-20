@@ -42,6 +42,9 @@ var InputNameComponent = /** @class */ (function () {
     __decorate([
         core_1.Input()
     ], InputNameComponent.prototype, "namePre");
+    __decorate([
+        core_1.Input()
+    ], InputNameComponent.prototype, "placeholder");
     InputNameComponent = __decorate([
         core_1.Component({
             selector: 'app-input-name',

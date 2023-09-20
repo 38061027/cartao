@@ -13,6 +13,7 @@ export class InputNameComponent implements AfterViewInit {
   @Input() formGroup!: FormGroup
   @Input() formControls: any
   @Input() namePre:any
+  @Input() placeholder: any
 
 
 

@@ -42,6 +42,9 @@ var InputNumberComponent = /** @class */ (function () {
     __decorate([
         core_1.Input()
     ], InputNumberComponent.prototype, "formControls");
+    __decorate([
+        core_1.Input()
+    ], InputNumberComponent.prototype, "placeholder");
     InputNumberComponent = __decorate([
         core_1.Component({
             selector: 'app-input-number',
