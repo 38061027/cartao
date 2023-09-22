@@ -7,6 +7,7 @@
   flex-direction: column;
   gap: 50px;
 background-color: rgb(44, 42, 42);
+
 }
 
 
@@ -205,9 +206,20 @@ color: black;
   text-align: center;
 }
 
+.card-div{
+width: 100%;
+}
+
 @media screen and (max-width: 450px) {
   .content-form .row {
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
+
+  .content-form .submit-btn{
+  width: 100%;
+  }
+
+
 }
