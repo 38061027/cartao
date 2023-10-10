@@ -75,11 +75,15 @@
 
               <a>
                 {{
-                  forms.get("vencimento")?.value.slice(0, 2) +
-                    "/" +
-                    forms.get("vencimento")?.value.slice(2)
+                  forms.get('vencimento')?.value.slice(0, 2) +
+                  '/' +
+                  forms.get('vencimento')?.value.slice(2) +
+                  (forms.get('vencimento')?.value.slice(2) ? '/' + forms.get('vencimento')?.value.slice(2) : '') |
+                  date: 'MM/yy'
                 }}
               </a>
+
+
             </div>
           </ng-template>
         </div>

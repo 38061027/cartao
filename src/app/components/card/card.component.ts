@@ -28,17 +28,17 @@ export class CardComponent implements OnInit {
   bandeiraImageUrl: string = '';
   bandeiraColor: string = 'rgb(170, 170, 166)';
 
-  valorPreCarregado: string = '**** **** **** ****';
-  namePreCarregado: string = 'Full Name';
+  valorPreCarregado: string = '0000 0000 0000 0000';
+  namePreCarregado: string = 'Nome aqui';
   vencimentoPreCarregado: string = 'MM/YY';
   cvcPreCarregado: string = '123';
 
 
   placeholders = {
-    cardNumber: "5323 6252 9301 2711",
-    name: 'Jose A G',
+    cardNumber: "**** **** **** ****",
+    name: 'Nome impresso',
     expires: '02/33',
-    cvc: '438'
+    cvc: '***'
   }
 
 
