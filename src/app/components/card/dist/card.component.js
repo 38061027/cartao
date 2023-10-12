@@ -19,7 +19,6 @@ var CardComponent = /** @class */ (function () {
         this.sharedService = sharedService;
         this.dialog = dialog;
         this.bandeiraImageUrl = '';
-        this.bandeiraColor = 'rgb(170, 170, 166)';
         this.valorPreCarregado = '0000 0000 0000 0000';
         this.namePreCarregado = 'Nome aqui';
         this.vencimentoPreCarregado = 'MM/YY';
@@ -74,21 +73,23 @@ var CardComponent = /** @class */ (function () {
     };
     CardComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.trocarBandeira();
         this.eventService.resetEvent.subscribe(function () {
             _this.onReset();
         });
     };
     CardComponent.prototype.trocarBandeira = function () {
-        var cardNumberInput = this.element.nativeElement.querySelector('#number-card');
-        var cardNumberValue = cardNumberInput.value;
-        var bandeira = this.sharedService.findBandeira(cardNumberValue);
-        if (bandeira) {
-            this.bandeiraImageUrl = bandeira.img;
-        }
-        else {
-            this.bandeiraImageUrl = 'https://marcas-logos.net/wp-content/uploads/2021/06/Discover-logo.png';
-        }
+        var _this = this;
+        setTimeout(function () {
+            var cardNumberInput = _this.element.nativeElement.querySelector('#number-card');
+            var cardNumberValue = cardNumberInput.value;
+            var bandeira = _this.sharedService.findBandeira(cardNumberValue);
+            if (bandeira) {
+                _this.bandeiraImageUrl = bandeira.img;
+            }
+            else {
+                _this.bandeiraImageUrl = 'https://marcas-logos.net/wp-content/uploads/2021/06/Discover-logo.png';
+            }
+        });
     };
     CardComponent.prototype.formatarNumero = function (numero) {
         var numeroFormatado = numero
@@ -96,24 +97,6 @@ var CardComponent = /** @class */ (function () {
             .replace(/\s/g, '')
             .match(/.{1,4}/g);
         return numeroFormatado ? numeroFormatado.join(' ') : '';
-    };
-    CardComponent.prototype.namePre = function (event) {
-        var cardInput = event.target;
-        if (cardInput.value === this.namePreCarregado) {
-            cardInput.value = '';
-        }
-    };
-    CardComponent.prototype.valPre = function (event) {
-        var cardInput = event.target;
-        if (cardInput.value === this.vencimentoPreCarregado) {
-            cardInput.value = '';
-        }
-    };
-    CardComponent.prototype.cvcPre = function (event) {
-        var cardInput = event.target;
-        if (cardInput.value === this.cvcPreCarregado) {
-            cardInput.value = '';
-        }
     };
     CardComponent = __decorate([
         core_1.Component({

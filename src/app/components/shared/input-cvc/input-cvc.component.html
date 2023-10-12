@@ -17,7 +17,6 @@
       (blur)="desfoque()"
       formControlName="cvc"
       maxlength="3"
-      (keyup)="cvcPre($event)"
       [ngClass]="{ 'preloaded-value': formControls['cvc'].value }"
     />
 

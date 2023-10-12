@@ -34,7 +34,7 @@ describe('CardComponent', () => {
 
   })
 
-  
+
 
 
 

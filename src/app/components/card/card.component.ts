@@ -1,11 +1,10 @@
 import { SharedService } from './../../service/shared.service';
 import {
-  AfterViewInit,
   Component,
   ElementRef,
+  NgZone,
   OnInit,
   Renderer2,
-  ViewChild,
 } from '@angular/core';
 import {  FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -26,7 +25,6 @@ export class CardComponent implements OnInit {
   forms: FormGroup;
 
   bandeiraImageUrl: string = '';
-  bandeiraColor: string = 'rgb(170, 170, 166)';
 
   valorPreCarregado: string = '0000 0000 0000 0000';
   namePreCarregado: string = 'Nome aqui';
@@ -75,6 +73,8 @@ export class CardComponent implements OnInit {
 
 
 
+
+
   onReset(){
     this.forms.reset()
   }
@@ -113,26 +113,35 @@ return false
 
 
   ngOnInit(): void {
-    this.trocarBandeira();
+
     this.eventService.resetEvent.subscribe(()=>{
       this.onReset()
     })
+
+
   }
 
   trocarBandeira():void {
-    const cardNumberInput =
-    this.element.nativeElement.querySelector('#number-card');
-    const cardNumberValue = cardNumberInput.value;
 
-    const bandeira = this.sharedService.findBandeira(cardNumberValue);
 
-    if (bandeira) {
-      this.bandeiraImageUrl = bandeira.img;
+    setTimeout(()=>{
 
-    } else {
-      this.bandeiraImageUrl = 'https://marcas-logos.net/wp-content/uploads/2021/06/Discover-logo.png';
 
-    }
+
+      const cardNumberInput =
+      this.element.nativeElement.querySelector('#number-card');
+      const cardNumberValue = cardNumberInput.value;
+
+      const bandeira = this.sharedService.findBandeira(cardNumberValue);
+
+      if (bandeira) {
+        this.bandeiraImageUrl = bandeira.img;
+
+      } else {
+        this.bandeiraImageUrl = 'https://marcas-logos.net/wp-content/uploads/2021/06/Discover-logo.png';
+
+      }
+    })
   }
 
   formatarNumero(numero: string): string {
@@ -144,24 +153,4 @@ return false
   }
 
 
-  namePre(event: KeyboardEvent): void {
-    const cardInput = event.target as HTMLInputElement;
-    if (cardInput.value === this.namePreCarregado) {
-      cardInput.value = '';
-    }
-  }
-
-  valPre(event: KeyboardEvent): void {
-    const cardInput = event.target as HTMLInputElement;
-    if (cardInput.value === this.vencimentoPreCarregado) {
-      cardInput.value = '';
-    }
-  }
-
-  cvcPre(event: KeyboardEvent): void {
-    const cardInput = event.target as HTMLInputElement;
-    if (cardInput.value === this.cvcPreCarregado) {
-      cardInput.value = '';
-    }
-  }
 }

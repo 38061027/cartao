@@ -13,7 +13,6 @@
       [placeholder]="placeholder.expires"
       formControlName="vencimento"
       maxlength="4"
-      (keyup)="valPre($event)"
       [ngClass]="{ 'preloaded-value': formControls['vencimento'].value }"
     />
 

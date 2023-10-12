@@ -17,6 +17,7 @@ var button_1 = require("@angular/material/button");
 var animations_1 = require("@angular/platform-browser/animations");
 var platform_browser_1 = require("@angular/platform-browser");
 var dialog_1 = require("@angular/material/dialog");
+var form_field_1 = require("@angular/material/form-field");
 var MODULES = [
     card_1.MatCardModule,
     forms_1.ReactiveFormsModule,
@@ -25,7 +26,8 @@ var MODULES = [
     button_1.MatButtonModule,
     animations_1.BrowserAnimationsModule,
     platform_browser_1.BrowserModule,
-    dialog_1.MatDialogModule
+    dialog_1.MatDialogModule,
+    form_field_1.MatFormFieldModule
 ];
 var MaterialModule = /** @class */ (function () {
     function MaterialModule() {
