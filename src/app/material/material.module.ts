@@ -1,3 +1,4 @@
+import { MatSelectModule } from '@angular/material/select';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatCardModule} from '@angular/material/card';
@@ -11,6 +12,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 
+
 const MODULES = [
   MatCardModule,
   ReactiveFormsModule,
@@ -20,7 +22,8 @@ MatButtonModule,
 BrowserAnimationsModule,
 BrowserModule,
 MatDialogModule,
-MatFormFieldModule
+MatFormFieldModule,
+
 
 ]
 

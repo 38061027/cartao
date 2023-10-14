@@ -26,6 +26,8 @@ export class InputMaturityComponent implements AfterViewInit{
     const char = String.fromCharCode(event.keyCode);
     const pattern = /[0-9]/g;
 
+   
+
     if (char.match(pattern)) {
       return true
     }
@@ -40,6 +42,8 @@ return false
     this.cardVal.nativeElement.addEventListener('keypress', (event: KeyboardEvent)=>{
       this.handleKeyPressEvent(event)
     })
+
+
 
   }
 

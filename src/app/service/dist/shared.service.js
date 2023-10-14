@@ -21,7 +21,7 @@ var SharedService = /** @class */ (function () {
             },
             {
                 name: 'amex',
-                img: 'https://assets.stickpng.com/images/620670b9d7b91b0004122617.png'
+                img: 'https://www.mobills.com.br/blog/wp-content/uploads/2022/06/logo-da-bandeira-american-express-amex.png'
             },
             {
                 name: 'discover',

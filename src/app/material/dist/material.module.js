@@ -27,7 +27,7 @@ var MODULES = [
     animations_1.BrowserAnimationsModule,
     platform_browser_1.BrowserModule,
     dialog_1.MatDialogModule,
-    form_field_1.MatFormFieldModule
+    form_field_1.MatFormFieldModule,
 ];
 var MaterialModule = /** @class */ (function () {
     function MaterialModule() {

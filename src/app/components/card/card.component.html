@@ -43,6 +43,7 @@
       <!-- Val do cartão -->
 
       <div class="card-name-val">
+
         <p
           *ngIf="!forms.get('nickName')?.value; else conteudoName"
           class="preloaded-value-name"
@@ -146,6 +147,8 @@
       <!-- Input CÓDIGO DE SEGURANÇA -->
       <app-input-cvc  [placeholder]="placeholders" [formGroup]="forms" [formControls]="f"> </app-input-cvc>
     </div>
+
+
 
     <button
 

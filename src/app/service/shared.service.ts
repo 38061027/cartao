@@ -27,7 +27,7 @@ export class SharedService {
     },
     {
       name: 'amex',
-      img: 'https://assets.stickpng.com/images/620670b9d7b91b0004122617.png',
+      img: 'https://www.mobills.com.br/blog/wp-content/uploads/2022/06/logo-da-bandeira-american-express-amex.png',
 
     },
     {
@@ -45,7 +45,7 @@ export class SharedService {
       img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Elo_card_association_logo_-_black_text.svg/1200px-Elo_card_association_logo_-_black_text.svg.png',
 
     },
-    
+
   ];
 
   findBandeira(cardNumberValue: string): any {
